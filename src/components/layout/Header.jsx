@@ -1,0 +1,249 @@
+import React, { useState, useEffect } from 'react';
+import Container from '../ui/Container';
+import logoImg from '../../assets/images/Logo/rajkamal-tours-travels-logo.svg';
+
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+
+  // Handle scroll event to change header background
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+        isScrolled || isMobileMenuOpen ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+      }`}
+    >
+      <Container className="max-w-[1400px]">
+        <div className="flex items-center justify-between gap-3 relative z-50 bg-transparent">
+          
+          {/* Logo */}
+          <div className="flex-shrink-0 cursor-pointer">
+            <img 
+              src={logoImg} 
+              alt="Rajkamal Tours & Travels" 
+              className="h-10 md:h-12 w-auto object-contain"
+            />
+          </div>
+
+          {/* Center Navigation & Right Actions Grouped */}
+          <div className="hidden lg:flex items-center gap-2">
+            
+            {/* Center Navigation Pill */}
+            <nav className="flex items-center bg-[#f4f4f5] border border-gray-200 rounded-xl px-2 py-1.5 shadow-sm relative">
+              <a href="#" className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                Home
+              </a>
+              <a href="#about" className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                About us
+              </a>
+              <a href="#destinations" className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                Destinations
+              </a>
+              <a href="#packages" className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                Tour packages
+              </a>
+              
+              {/* Services Dropdown Trigger */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <button className={`flex items-center px-4 py-2 text-sm font-medium transition-colors ${
+                  isServicesOpen ? 'bg-white shadow-sm rounded-xl text-text-main' : 'text-text-muted hover:text-primary'
+                }`}>
+                  Services
+                  <svg 
+                    className={`w-3.5 h-3.5 ml-1 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {/* Dropdown Menu */}
+                {isServicesOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-[12px] w-48 z-50">
+                    <div className="bg-[#f4f4f5] border border-gray-200 rounded-xl shadow-lg py-2 overflow-hidden flex flex-col">
+                      
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                        Fixed departures
+                      </a>   <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                        Flight booking
+                      </a>
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                        Cruise booking
+                      </a>
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                        Visa support
+                      </a>
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                        Travel insurance
+                      </a>
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors">
+                        passport application
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <a href="#blog" className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                Blog
+              </a>
+              <a href="#contact" className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                Contact us
+              </a>
+            </nav>
+
+            {/* Right Actions */}
+            <div className="flex items-center gap-2">
+              {/* Search Icon */}
+              <div className="p-[3px] border border-gray-200 rounded-xl bg-white">
+                <button className="flex items-center justify-center w-[38px] h-[38px] bg-[#e5e7eb] hover:bg-[#d1d5db] rounded-xl text-text-main transition-colors cursor-pointer">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                  </svg>
+                </button>
+              </div>
+              
+              {/* CTA Button */}
+              <button className="bg-primary hover:bg-primary-hover text-white text-sm font-semibold px-6 py-[13px] rounded-xl transition-colors cursor-pointer shadow-sm">
+                Plan my holiday
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu Button (Hamburger/Close) */}
+          <button 
+            className="lg:hidden p-2 text-text-main focus:outline-none cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+
+        </div>
+      </Container>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col max-h-[calc(100vh-70px)] overflow-y-auto">
+          <nav className="flex flex-col p-4 gap-2">
+            <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
+              Home
+            </a>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
+              About us
+            </a>
+            <a href="#destinations" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
+              Destinations
+            </a>
+            <a href="#packages" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
+              Tour packages
+            </a>
+            
+            {/* Mobile Services Accordion */}
+            <div className="flex flex-col">
+              <button 
+                onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                className="flex items-center justify-between px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 rounded-xl transition-colors"
+              >
+                Services
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isMobileServicesOpen && (
+                <div className="flex flex-col ml-4 pl-4 border-l-2 border-gray-100 mt-1 gap-1">
+                  <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                    Fixed departures
+                  </a>
+                  <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                    Flight booking
+                  </a>
+                  <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                    Cruise booking
+                  </a>
+                  <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                    Visa support
+                  </a>
+                  <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                    Travel insurance
+                  </a>
+                  <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
+                    Passport application
+                  </a>
+                </div>
+              )}
+            </div>
+
+            <a href="#blog" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
+              Blog
+            </a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
+              Contact us
+            </a>
+          </nav>
+          
+          {/* Mobile Actions */}
+          <div className="flex flex-col p-4 border-t border-gray-100 gap-4 mt-auto">
+            <button className="flex items-center justify-center gap-2 bg-[#f4f4f5] text-text-main font-semibold px-6 py-3.5 rounded-xl transition-colors w-full cursor-pointer">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+              Search
+            </button>
+            <button className="bg-primary hover:bg-primary-hover text-white font-semibold px-6 py-3.5 rounded-xl transition-colors w-full shadow-sm cursor-pointer">
+              Plan my holiday
+            </button>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;

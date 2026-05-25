@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Switzerland Escape",
+    "description": "Experience breathtaking alpine landscapes, scenic train rides, luxury stays, and unforgettable European charm.",
+    "includes": ["Flights", "Hotels", "Sightseeing", "Visa Assistance"],
+    "duration": "7 Days / 6 Nights",
+    "image": "https://images.unsplash.com/photo-1527668752968-14ce70a6a7ea?auto=format&fit=crop&q=80&w=800",
+    "category": "Europe",
+    "isFeatured": true,
+    "isActive": true
+  },
+  {
+    "id": 2,
+    "title": "Maldives Luxury Retreat",
+    "description": "Relax in overwater villas surrounded by crystal-clear waters and premium island experiences.",
+    "includes": ["Resort Stay", "Airport Transfers", "Breakfast & Dinner", "Water Activities"],
+    "duration": "5 Days / 4 Nights",
+    "image": "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&q=80&w=800",
+    "category": "Asia",
+    "isFeatured": true,
+    "isActive": true
+  },
+  {
+    "id": 3,
+    "title": "Dubai Adventure",
+    "description": "Discover luxury shopping, desert safaris, modern architecture, and world-class entertainment.",
+    "includes": ["Hotel Stay", "Desert Safari", "City Tour", "Airport Transfers"],
+    "duration": "6 Days / 5 Nights",
+    "image": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800",
+    "category": "Middle East",
+    "isFeatured": true,
+    "isActive": true
+  }
+]

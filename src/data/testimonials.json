@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "quote": "The Rajkamal team planned our family vacation with great attention to detail and provided continuous support throughout the trip. From bookings to travel coordination, everything was seamless, comfortable, and perfectly organized.",
+    "name": "Priya Shah",
+    "location": "Mumbai → Bali",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 2,
+    "quote": "Rajkamal tours handled our europe trip perfectly from visa assistance and hotel bookings to transportation and itinerary planning. Everything was professionally managed, making our entire journey smooth, comfortable, and completely stress-free.",
+    "name": "Aarav Mehta",
+    "location": "Ahmedabad → Switzerland",
+    "avatar": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 3,
+    "quote": "Our Dubai adventure was nothing short of spectacular. The desert safari and city tours were perfectly timed. The team ensured we got the best rates for luxury accommodations.",
+    "name": "Liam Carter",
+    "location": "Mumbai → Dubai",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 4,
+    "quote": "An absolute dream! Rajkamal Holidays curated a perfect itinerary for our honeymoon. The resorts were spectacular and the entire process was completely hassle-free.",
+    "name": "Neha Sharma",
+    "location": "Delhi → Maldives",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150"
+  },
+  {
+    "id": 5,
+    "quote": "Highly recommended for group travel. We were a group of 15 and everything from transport to accommodations was arranged flawlessly. Great service and communication!",
+    "name": "Rohan Desai",
+    "location": "Pune → Singapore",
+    "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150"
+  }
+]

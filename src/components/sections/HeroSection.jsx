@@ -97,7 +97,7 @@ const HeroSection = () => {
         ref={planeRef}
         src={planeImg} 
         alt="Airplane flying" 
-        className="absolute top-[35%] right-[35%] w-full max-w-[90px] h-auto object-contain z-15 pointer-events-none"
+        className="absolute top-[45%] right-[35%] md:top-[35%] md:right-[35%] w-full max-w-[90px] h-auto object-contain z-15 pointer-events-none"
       />
 
       {/* Text Content */}

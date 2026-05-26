@@ -106,11 +106,13 @@ const FooterSection = () => {
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-0">
           {/* Left Side: Logo & Info */}
           <div className="w-full lg:w-4/12 flex flex-col items-start">
-            <img
-              src={logoImg}
-              alt="Rajkamal Tours & Travels"
-              className="h-14 w-auto mb-6 object-contain"
-            />
+            <a href="#" className="inline-flex items-center mb-6 cursor-pointer">
+              <img
+                src={logoImg}
+                alt="Rajkamal Tours & Travels"
+                className="h-14 w-auto object-contain"
+              />
+            </a>
             <p className="text-text-main text-sm font-medium leading-relaxed mb-8 max-w-[340px]">
               Creating seamless and unforgettable travel experiences with over
               20 years of trusted expertise.

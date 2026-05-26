@@ -3,6 +3,7 @@ import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
+import BadgeStarIcon from '../ui/BadgeStarIcon';
 
 // Import data from the JSON file
 import packagesData from '../../data/packages.json';
@@ -30,7 +31,7 @@ const PopularPackagesSection = () => {
           {/* Left Side */}
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-1 md:mb-4 text-text-muted border-none px-0 bg-transparent">
-              <span className="text-primary mr-2">★</span> Popular packages
+              <BadgeStarIcon /> Popular packages
             </Badge>
             <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight mb-2 md:mb-0">
               Explore Our Popular<br />Travel Packages
@@ -39,7 +40,7 @@ const PopularPackagesSection = () => {
           
           {/* Right Side */}
           <div className="max-w-[372px] flex flex-col items-start ">
-            <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-6 ">
+            <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-4 ">
               Curated domestic and international travel experiences designed for seamless and unforgettable journeys.
             </p>
             <Button variant="primary" className="hidden md:flex rounded-xl cursor-pointer px-6 py-3 mt-4 md:mt-0">
@@ -68,7 +69,7 @@ const PopularPackagesSection = () => {
               {/* Content Inner Box */}
               <div className="bg-white rounded-xl p-6 md:p-8 flex flex-col flex-grow">
                 {/* Title */}
-                <h3 className="text-[20px] md:text-[24px] font-semibold text-text-main mb-3 leading-tight">
+                <h3 className="text-[20px] md:text-[24px] text-text-main mb-3 leading-tight !font-normal">
                   {pkg.title}
                 </h3>
                 
@@ -78,9 +79,9 @@ const PopularPackagesSection = () => {
                 </p>
                 
                 {/* Includes */}
-                <div className="mb-6">
-                  <p className="text-sm font-medium text-text-main mb-3">Includes</p>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
+                <div className="mb-3">
+                  <p className="text-base !text-[#090909CC] font-medium text-text-main mb-2">Includes</p>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                     {pkg.includes.map((item, idx) => (
                       <React.Fragment key={idx}>
                         <div className="flex items-center text-[13px] md:text-sm text-text-main">
@@ -98,8 +99,8 @@ const PopularPackagesSection = () => {
                 </div>
                 
                 {/* Duration */}
-                <div className="mb-8 mt-auto">
-                  <p className="text-sm font-medium text-text-main mb-3">Duration</p>
+                <div className="mb-5 mt-auto">
+                  <p className="text-base !text-[#090909CC] font-medium text-text-main mb-2">Duration</p>
                   <div className="flex items-center text-[13px] md:text-sm text-text-main">
                     <svg className="w-3.5 h-3.5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeWidth={2}></rect>
@@ -112,7 +113,7 @@ const PopularPackagesSection = () => {
                 </div>
                 
                 {/* Explore Link */}
-                <div className="mt-2">
+                <div >
                   <span className="inline-flex items-center text-primary text-sm md:text-base">
                     <span className="underline underline-offset-3 ">Explore Package</span>
                     {/* Rotate-45 by default (up-right), rotates to 0 (right) on hover */}

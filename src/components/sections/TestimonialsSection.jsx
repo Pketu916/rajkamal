@@ -20,10 +20,10 @@ const TestimonialsSection = () => {
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-6">
           <div className="max-w-xl">
-            <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight mb-2 md:mb-4">
+            <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight mb-2 md:mb-3">
               What Our Travelers Say
             </h2>
-            <p className="text-text-muted text-sm md:text-base leading-relaxed">
+            <p className="text-text-muted text-sm md:text-base leading-relaxed max-w-[420px]">
               Real experiences from travelers who explored the world with Rajkamal holidays.
             </p>
           </div>
@@ -119,9 +119,9 @@ const TestimonialsSection = () => {
                   key={testimonial.id} 
                   className="max-w-[300px] md:max-w-[320px] flex !h-auto"
                 >
-                  <div className="bg-[#f5f5f5] rounded-xl p-6 md:p-8 flex flex-col w-full h-full shadow-sm">
+                  <div className="bg-[#F2F2F2] rounded-xl p-6 md:p-8 flex flex-col w-full h-full shadow-sm">
                     {/* Big Quote Icon */}
-                    <svg className="w-10 h-10 text-primary mb-4 md:mb-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-10 h-10 text-primary mb-4 md:mb-8 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M9.983 3v7.391C9.983 16.095 6.252 19.961 2 21L.995 19.34C4.305 18.232 5.969 15.393 5.969 12.019H2V3h7.983zm14.017 0v7.391C24 16.095 20.269 19.961 16 21l-1.005-1.66c3.31-1.108 4.974-3.947 4.974-7.321H16V3h8z"/>
                     </svg>
                     

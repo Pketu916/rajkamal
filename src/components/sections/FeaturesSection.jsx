@@ -3,6 +3,7 @@ import Section from "../ui/Section";
 import Container from "../ui/Container";
 import Badge from "../ui/Badge";
 import Button from "../ui/Button";
+import BadgeStarIcon from "../ui/BadgeStarIcon";
 
 import about1 from "../../assets/images/why-choose-us/About us 1.png";
 import about2 from "../../assets/images/why-choose-us/About us 2.png";
@@ -97,7 +98,7 @@ const FeaturesSection = () => {
                 <Badge
                   variant="outline"
                   className="mb-1 md:mb-3 border-none px-0 text-text-muted bg-transparent">
-                  <span className="text-primary text-lg mr-2">★</span> About us
+                  <BadgeStarIcon /> About us
                 </Badge>
 
                 <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main mb-2 md:mb-6 leading-tight">

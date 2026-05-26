@@ -3,6 +3,7 @@ import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
+import BadgeStarIcon from '../ui/BadgeStarIcon';
 
 import destinationsImg1 from '../../assets/images/Destinations/Destinations 1.png';
 import destinationsImg2 from '../../assets/images/Destinations/Destinations 2.png';
@@ -60,7 +61,7 @@ const DestinationsSection = () => {
           {/* Left Side */}
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-1 md:mb-4 text-text-muted border-none px-0 bg-transparent">
-              <span className="text-primary mr-2">★</span> Popular destinations
+              <BadgeStarIcon /> Popular destinations
             </Badge>
             <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight">
               Discover Our Most<br />Loved Travel Destinations
@@ -69,7 +70,7 @@ const DestinationsSection = () => {
           
           {/* Right Side */}
           <div className="max-w-lg flex flex-col items-start">
-            <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-6">
+            <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-4">
               Explore handpicked destinations filled with breathtaking landscapes, unforgettable experiences, and luxury travel moments across the world.
             </p>
             <Button variant="primary" className="hidden md:flex rounded-xl cursor-pointer px-6 py-3 mt-4 md:mt-0">
@@ -94,7 +95,7 @@ const DestinationsSection = () => {
               
               {/* Inner White Box */}
               <div className="absolute bottom-2 left-2 right-2 md:bottom-4 md:left-4 md:right-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 md:px-6 md:py-4 flex justify-between items-center shadow-lg transition-transform duration-500 ease-out group-hover:-translate-y-1">
-                <h4 className="text-base md:text-[18px] text-text-main font-semibold">{dest.name}</h4>
+                <h4 className="text-base md:text-[18px] text-text-main !font-normal">{dest.name}</h4>
                 <span className="text-xs md:text-sm text-text-muted font-medium">{dest.packages}</span>
               </div>
             </div>

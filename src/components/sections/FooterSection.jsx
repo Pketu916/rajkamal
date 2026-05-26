@@ -139,7 +139,7 @@ const FooterSection = () => {
               <h4 className="text-text-main text-lg font-medium mb-4">
                 Quick links
               </h4>
-              <ul className="flex flex-col md:gap-3.5 gap-1">
+              <ul className="flex flex-col md:gap-3 gap-1">
                 <li>
                   <a
                     href="#about"
@@ -190,7 +190,7 @@ const FooterSection = () => {
               <h4 className="text-text-main text-lg font-medium mb-4">
                 Services
               </h4>
-              <ul className="flex flex-col md:gap-3.5 gap-1 ">
+              <ul className="flex flex-col md:gap-3 gap-1 ">
                 <li>
                   <a
                     href="#"
@@ -238,7 +238,7 @@ const FooterSection = () => {
 
             {/* Newsletter & Socials */}
             <div className="flex flex-col items-start w-full max-w-[360px]">
-              <h4 className="text-text-main text-xl font-medium mb-3">
+              <h4 className="text-text-main text-xl font-medium mb-2">
                 Subscribe for Travel Updates
               </h4>
               <p className="text-text-main text-sm leading-relaxed mb-6">
@@ -294,7 +294,7 @@ const FooterSection = () => {
       {/* Infinite Seamless Marquee Row */}
       <div className="w-full py-8 md:py-12 relative overflow-hidden flex select-none md:mt-8">
         {/* Animated Marquee Container - Track 1 */}
-        <div className="flex shrink-0 items-center gap-3 md:gap-6 animate-marquee whitespace-nowrap pr-16 md:pr-24">
+        <div className="flex shrink-0 items-center gap-3 md:gap-6 animate-marquee whitespace-nowrap pr-3 md:pr-6">
           {marqueeItems.map((item, idx) => (
             <div
               key={`track1-${idx}`}
@@ -314,7 +314,7 @@ const FooterSection = () => {
 
         {/* Animated Marquee Container - Track 2 (Identical Duplicate) */}
         <div
-          className="flex shrink-0 items-center gap-3 md:gap-6 animate-marquee whitespace-nowrap pr-16 md:pr-24"
+          className="flex shrink-0 items-center gap-3 md:gap-6 animate-marquee whitespace-nowrap pr-3 md:pr-6"
           aria-hidden="true">
           {marqueeItems.map((item, idx) => (
             <div

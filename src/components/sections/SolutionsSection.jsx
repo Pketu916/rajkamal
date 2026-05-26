@@ -160,7 +160,7 @@ const SolutionsSection = () => {
                     {/* The Inner White Box */}
                     <div className="bg-white w-full h-full p-4 md:p-8 flex flex-col rounded-xl md:rounded-xl shadow-lg border border-border-light/50">
                       
-                      <h3 className="text-lg md:text-2xl text-text-main mb-2 md:mb-3 font-semibold leading-tight">
+                      <h3 className="text-lg md:text-2xl text-text-main mb-2 md:mb-3 !font-normal leading-tight">
                         {solution.title}
                       </h3>
                       

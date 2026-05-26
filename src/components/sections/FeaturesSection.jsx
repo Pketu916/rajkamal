@@ -81,7 +81,7 @@ const FeaturesSection = () => {
     <Section className="py-16 md:py-[100px] bg-white">
       <Container className="max-w-[1280px]">
         {/* Top & Middle Layout: Asymmetrical Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 md:mb-[42px]">
           {/* Left + Center Wrapper (col-span-2) */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             {/* Top Row: Image 1 and Text */}
@@ -90,11 +90,11 @@ const FeaturesSection = () => {
                 <img
                   src={about1}
                   alt="Beautiful mountain landscape"
-                  className="w-full h-[300px] md:h-[400px] lg:h-[450px] object-cover rounded-xl "
+                  className="w-full h-full object-cover rounded-xl "
                 />
               </div>
 
-              <div className="flex flex-col items-start pt-2">
+              <div className="flex flex-col items-start pt-12">
                 <Badge
                   variant="outline"
                   className="mb-1 md:mb-3 border-none px-0 text-text-muted bg-transparent">
@@ -124,7 +124,7 @@ const FeaturesSection = () => {
             </div>
 
             {/* Middle Row: "Why Choose Us?" Heading */}
-            <div className="mt-12 lg:mt-auto pt-8">
+            <div className="mt-12 lg:mt-auto pt-12">
               <h2 className="text-[28px] md:text-[32px] !font-normal text-text-main">
                 Why Choose Us?
               </h2>
@@ -154,7 +154,7 @@ const FeaturesSection = () => {
                 {/* Parent container managing SVG height and width */}
                 <div className="w-6 h-6 flex-shrink-0">{feature.icon}</div>
               </div>
-              <p className="text-text-muted text-sm leading-relaxed">
+              <p className="text-text-muted text-sm leading-relaxed mr-9">
                 {feature.desc}
               </p>
             </div>

@@ -56,7 +56,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-2">
             
             {/* Center Navigation Pill */}
-            <nav className="flex items-center bg-[#f4f4f5] border border-gray-200 rounded-xl px-2 py-1.5 shadow-sm relative">
+            <nav className="flex items-center bg-[#F2F2F2] border border-[#00000033] rounded-xl px-2 py-1.5 shadow-sm relative">
               <a href="#" className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
                 Home
               </a>
@@ -93,23 +93,23 @@ const Header = () => {
                 {/* Dropdown Menu */}
                 {isServicesOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-[12px] w-48 z-50">
-                    <div className="bg-[#f4f4f5] border border-gray-200 rounded-xl shadow-lg py-2 overflow-hidden flex flex-col">
+                    <div className="bg-[#F2F2F2] border border-[#00000033] rounded-xl shadow-lg py-2 overflow-hidden items-center flex flex-col">
                       
-                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
                         Fixed departures
-                      </a>   <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                      </a>   <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
                         Flight booking
                       </a>
-                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
                         Cruise booking
                       </a>
-                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
                         Visa support
                       </a>
-                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors border-b border-gray-200">
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
                         Travel insurance
                       </a>
-                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted hover:bg-white hover:text-primary transition-colors">
+                      <a href="#" className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors">
                         passport application
                       </a>
                     </div>
@@ -128,7 +128,7 @@ const Header = () => {
             {/* Right Actions */}
             <div className="flex items-center gap-2">
               {/* Search Icon */}
-              <div className="p-[3px] border border-gray-200 rounded-xl bg-white">
+              <div className="p-[3px] border border-[#00000033] rounded-xl bg-white">
                 <button className="flex items-center justify-center w-[38px] h-[38px] bg-[#e5e7eb] hover:bg-[#d1d5db] rounded-xl text-text-main transition-colors cursor-pointer">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -230,7 +230,7 @@ const Header = () => {
           
           {/* Mobile Actions */}
           <div className="flex flex-col p-4 border-t border-gray-100 gap-4 mt-auto">
-            <button className="flex items-center justify-center gap-2 bg-[#f4f4f5] text-text-main font-semibold px-6 py-3.5 rounded-xl transition-colors w-full cursor-pointer">
+            <button className="flex items-center justify-center gap-2 bg-[#F2F2F2] text-text-main font-semibold px-6 py-3.5 rounded-xl transition-colors w-full cursor-pointer">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
               </svg>

@@ -31,7 +31,7 @@ const TestimonialsSection = () => {
           {/* Desktop Navigation Buttons */}
           <div className="hidden md:flex gap-4 flex-shrink-0">
             <button 
-              className={`inline-flex items-center justify-center w-12 h-12 rounded-xl transition-colors focus:outline-none ${
+              className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
                 isBeginning ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'
               }`}
               onClick={() => swiperRef.current?.slidePrev()}
@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
               </svg>
             </button>
             <button 
-              className={`inline-flex items-center justify-center w-12 h-12 rounded-xl transition-colors focus:outline-none ${
+              className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
                 isEnd ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'
               }`}
               onClick={() => swiperRef.current?.slideNext()}
@@ -157,7 +157,7 @@ const TestimonialsSection = () => {
         {/* Mobile Navigation Buttons */}
         <div className="flex md:hidden justify-center gap-4 mt-8 w-full">
           <button 
-            className={`inline-flex items-center justify-center w-12 h-12 rounded-xl transition-colors focus:outline-none ${
+            className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
               isBeginning ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'
             }`}
             onClick={() => swiperRef.current?.slidePrev()}
@@ -168,7 +168,7 @@ const TestimonialsSection = () => {
             </svg>
           </button>
           <button 
-            className={`inline-flex items-center justify-center w-12 h-12 rounded-xl transition-colors focus:outline-none ${
+            className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
               isEnd ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'
             }`}
             onClick={() => swiperRef.current?.slideNext()}

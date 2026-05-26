@@ -121,7 +121,7 @@ const FooterSection = () => {
             {/* Contact details with orange vertical borders */}
             <div className="flex flex-col gap-3 w-full">
               <p className="text-sm font-medium text-text-main border-l-2 border-primary pl-2 leading-none">
-                <a href="tel:+919274584480" className="hover:text-primary transition-colors">92745 84480</a> | <a href="tel:+917984359577" className="hover:text-primary transition-colors">79843 59577</a> | <a href="tel:+919879584480" className="hover:text-primary transition-colors">98795 84480</a>
+                <a href="tel:+919274584480" className="hover:text-primary transition-colors ">92745 84480</a><span class="text-[#00000033]"> | </span><a href="tel:+917984359577" className="hover:text-primary transition-colors">79843 59577</a><span class="text-[#00000033]"> | </span><a href="tel:+919879584480" className="hover:text-primary transition-colors">98795 84480</a>
               </p>
               <p className="text-sm font-medium text-text-main border-l-2 border-primary pl-2 leading-none">
                 <a href="mailto:info@rajkamaltours.com" className="hover:text-primary transition-colors">info@rajkamaltours.com</a>
@@ -341,9 +341,9 @@ const FooterSection = () => {
             <p className="text-sm text-text-main font-medium text-center sm:text-left">
               &copy; 2026 Rajkamal holidays. All Rights Reserved.
             </p>
-            <span className="hidden sm:inline text-text-light">|</span>
+            <span className="hidden sm:inline text-[#00000033]">|</span>
             <p className="text-sm text-text-main font-medium text-center sm:text-left">
-              Powered by <a href="https://appsrow.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">appsrow</a>
+              Powered by <a href="https://appsrow.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">Appsrow</a>
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-text-main font-medium">
@@ -352,13 +352,13 @@ const FooterSection = () => {
               className="hover:text-primary transition-colors cursor-pointer">
               Privacy Policy
             </a>
-            <span className="text-text-light mx-1">|</span>
+            <span className="text-[#00000033] mx-1">|</span>
             <a
               href="#"
               className="hover:text-primary transition-colors cursor-pointer">
               Terms &amp; Conditions
             </a>
-            <span className="text-text-light mx-1">|</span>
+            <span className="text-[#00000033] mx-1">|</span>
             <a
               href="#"
               className="hover:text-primary transition-colors cursor-pointer">

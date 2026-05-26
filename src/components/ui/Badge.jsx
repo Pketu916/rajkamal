@@ -6,12 +6,12 @@ const Badge = ({
   icon,
   className = ''
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center px-3 py-1 text-text-xs font-semibold uppercase tracking-wider rounded-xl border';
+  const baseClasses = 'inline-flex items-center justify-center py-1 text-text-xs font-semibold uppercase tracking-wider rounded-xl border';
   
   const getVariantClasses = () => {
     switch (variant) {
       case 'outline':
-        return 'border-primary text-primary bg-transparent';
+        return 'border-[#81818133] text-primary bg-transparent';
       case 'gray':
         return 'border-border-light text-text-muted bg-bg-alt';
       case 'primary':

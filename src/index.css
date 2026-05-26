@@ -50,15 +50,15 @@
   --color-primary-hover: #c2410c;
   --color-primary-light: #fff7ed; /* Very light orange for badge backgrounds */
   
-  --color-text-main: #111827; /* Headings */
-  --color-text-muted: #4b5563; /* Paragraphs */
+  --color-text-main: #000000; /* Headings */
+  --color-text-muted: #090909CC; /* Paragraphs */
   --color-text-light: #9ca3af; /* Small text / placeholders */
   
   --color-bg-main: #ffffff;
   --color-bg-alt: #f9fafb; /* Light section background */
   --color-bg-dark: #1f2937; /* Dark footer/CTA background */
   
-  --color-border-light: #e5e7eb;
+  --color-border-light: #09090933;
   --color-border-dark: #374151;
 
   /* Typography */
@@ -67,7 +67,7 @@
   
   /* Font Sizes */
   --text-xs: 0.75rem; /* 12px */
-  --text-sm: 0.875rem; /* 14px */
+  --text-sm: 0.9rem; /* 14px */
   --text-base: 1rem; /* 16px */
   --text-lg: 1.125rem; /* 18px */
   --text-xl: 1.25rem; /* 20px */
@@ -101,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .animate-marquee {
   display: flex;
-  animation: marquee 50s linear infinite;
+  animation: marquee 130s linear infinite;
 }
 
 

@@ -105,7 +105,7 @@ const HeroSection = () => {
         <h1 className=" text-3xl md:text-6xl lg:text-7xl font-bold text-text-main mb-2 md:mb-6 tracking-tight leading-tight">
           Curated Holidays. Seamless Experiences.
         </h1>
-        <p className="text-sm md:text-lg text-text-main max-w-3xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-lg text-text-main max-w-3xl mx-auto leading-relaxed ">
           At Rajkamal Holidays, We personalized holidays packages, luxury cruises, Flight Booking, visa assistance, and complete travel planning crafted for stress-free journeys worldwide.
         </p>
       </div>

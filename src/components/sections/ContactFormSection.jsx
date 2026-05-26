@@ -1,10 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import bgImage from '../../assets/images/Form/Form Image.png';
 
 const ContactFormSection = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    contactNumber: '',
+    groupSize: '01',
+    preferredDestination: '',
+    mealPlan: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+  const googleScriptUrl = import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK_URL;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!googleScriptUrl) {
+      setSubmitStatus({
+        type: 'error',
+        message:
+          'Google Sheets webhook is not configured. Add VITE_GOOGLE_SHEETS_WEBHOOK_URL in your .env file.'
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const submittedAtIndia = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(new Date());
+
+      const payload = JSON.stringify({
+        ...formData,
+        submittedAt: submittedAtIndia
+      });
+
+      await fetch(googleScriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: payload
+      });
+
+      setSubmitStatus({
+        type: 'success',
+        message: 'Inquiry submitted successfully.'
+      });
+      setFormData({
+        fullName: '',
+        email: '',
+        contactNumber: '',
+        groupSize: '01',
+        preferredDestination: '',
+        mealPlan: '',
+        message: ''
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Unable to submit right now. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Section className="relative w-full py-16 lg:py-[100px] overflow-hidden">
       {/* Background Image */}
@@ -45,7 +125,7 @@ const ContactFormSection = () => {
                 Let's Plan Your Holiday
               </h3>
               
-              <form className="flex flex-col gap-4 md:gap-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex flex-col gap-4 md:gap-6" onSubmit={handleSubmit}>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {/* Full Name */}
@@ -53,8 +133,12 @@ const ContactFormSection = () => {
                     <label className="text-white text-[15px] font-semibold mb-2">Full Name</label>
                     <input 
                       type="text" 
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
                       className="bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm" 
                       placeholder="Enter your full name" 
+                      required
                     />
                   </div>
                   
@@ -63,8 +147,12 @@ const ContactFormSection = () => {
                     <label className="text-white text-[15px] font-semibold mb-2">Email Address</label>
                     <input 
                       type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm" 
                       placeholder="Enter your email address" 
+                      required
                     />
                   </div>
 
@@ -73,8 +161,12 @@ const ContactFormSection = () => {
                     <label className="text-white text-[15px] font-semibold mb-2">Contact Number</label>
                     <input 
                       type="tel" 
+                      name="contactNumber"
+                      value={formData.contactNumber}
+                      onChange={handleChange}
                       className="bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm" 
                       placeholder="Enter your phone number" 
+                      required
                     />
                   </div>
 
@@ -82,7 +174,12 @@ const ContactFormSection = () => {
                   <div className="flex flex-col">
                     <label className="text-white text-[15px] font-semibold mb-2">Group Size</label>
                     <div className="relative">
-                      <select className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none">
+                      <select
+                        name="groupSize"
+                        value={formData.groupSize}
+                        onChange={handleChange}
+                        className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none"
+                      >
                         <option value="01" className="text-text-main">01</option>
                         <option value="02" className="text-text-main">02</option>
                         <option value="03" className="text-text-main">03</option>
@@ -100,8 +197,14 @@ const ContactFormSection = () => {
                   <div className="flex flex-col">
                     <label className="text-white text-[15px] font-semibold mb-2">Preferred Destination</label>
                     <div className="relative">
-                      <select className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none">
-                        <option value="" disabled selected className="text-text-main">Select your destination</option>
+                      <select
+                        name="preferredDestination"
+                        value={formData.preferredDestination}
+                        onChange={handleChange}
+                        className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none"
+                        required
+                      >
+                        <option value="" disabled className="text-text-main">Select your destination</option>
                         <option value="europe" className="text-text-main">Europe</option>
                         <option value="asia" className="text-text-main">Asia</option>
                         <option value="middle-east" className="text-text-main">Middle East</option>
@@ -118,8 +221,14 @@ const ContactFormSection = () => {
                   <div className="flex flex-col">
                     <label className="text-white text-[15px] font-semibold mb-2">Meal Plan</label>
                     <div className="relative">
-                      <select className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none">
-                        <option value="" disabled selected className="text-text-main">Select your meal</option>
+                      <select
+                        name="mealPlan"
+                        value={formData.mealPlan}
+                        onChange={handleChange}
+                        className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none"
+                        required
+                      >
+                        <option value="" disabled className="text-text-main">Select your meal</option>
                         <option value="breakfast" className="text-text-main">Breakfast</option>
                         <option value="half-board" className="text-text-main">Half Board</option>
                         <option value="full-board" className="text-text-main">Full Board</option>
@@ -138,17 +247,31 @@ const ContactFormSection = () => {
                   <label className="text-white text-[15px] font-semibold mb-2">Message</label>
                   <textarea 
                     rows="2" 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm resize-none" 
                     placeholder="Share your travel preferences, dates, or special requirements"
                   ></textarea>
                 </div>
+
+                {submitStatus.message && (
+                  <p
+                    className={`text-sm font-medium ${
+                      submitStatus.type === 'success' ? 'text-green-300' : 'text-red-300'
+                    }`}
+                  >
+                    {submitStatus.message}
+                  </p>
+                )}
                 
                 {/* Submit Button */}
                 <button 
                   type="submit" 
+                  disabled={isSubmitting}
                   className="w-full bg-white text-text-main font-bold text-base rounded-xl py-4 hover:bg-gray-100 transition-colors md:mt-2 shadow-lg cursor-pointer"
                 >
-                  Submit inquiry
+                  {isSubmitting ? 'Submitting...' : 'Submit inquiry'}
                 </button>
               </form>
             </div>

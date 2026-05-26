@@ -7,6 +7,16 @@ import Button from '../ui/Button';
 // Import data from the JSON file
 import packagesData from '../../data/packages.json';
 
+import popularPackagesImg1 from '../../assets/images/Popular Packages/Popular Packages 1.png';
+import popularPackagesImg2 from '../../assets/images/Popular Packages/Popular Packages 2.png';
+import popularPackagesImg3 from '../../assets/images/Popular Packages/Popular Packages 3.png';
+
+const popularPackageImagesById = {
+  1: popularPackagesImg1,
+  2: popularPackagesImg2,
+  3: popularPackagesImg3
+};
+
 const PopularPackagesSection = () => {
   // Filter active and featured packages
   const popularPackages = packagesData.filter(pkg => pkg.isActive && pkg.isFeatured);
@@ -49,7 +59,7 @@ const PopularPackagesSection = () => {
               {/* Image */}
               <div className="w-full h-[220px] overflow-hidden rounded-xl mb-2 md:mb-3 flex-shrink-0">
                 <img 
-                  src={pkg.image} 
+                  src={popularPackageImagesById[pkg.id] ?? pkg.image} 
                   alt={pkg.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                 />

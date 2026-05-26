@@ -6,60 +6,70 @@ import Container from '../ui/Container';
 import IconButton from '../ui/IconButton';
 import Button from '../ui/Button';
 
+import travelSolutionImg1 from '../../assets/images/Travel Solution/Travel Solution 1.png';
+import travelSolutionImg2 from '../../assets/images/Travel Solution/Travel Solution 2.png';
+import travelSolutionImg3 from '../../assets/images/Travel Solution/Travel Solution 3.png';
+import travelSolutionImg4 from '../../assets/images/Travel Solution/Travel Solution 4.png';
+import travelSolutionImg5 from '../../assets/images/Travel Solution/Travel Solution 5.png';
+import travelSolutionImg6 from '../../assets/images/Travel Solution/Travel Solution 6.png';
+import travelSolutionImg7 from '../../assets/images/Travel Solution/Travel Solution 7.png';
+import travelSolutionImg8 from '../../assets/images/Travel Solution/Travel Solution 8.png';
+import travelSolutionImg9 from '../../assets/images/Travel Solution/Travel Solution 9.png';
+
 const solutions = [
   {
     title: 'Domestic Holiday Packages',
     desc: 'Explore beautiful destinations across India with carefully curated holiday experiences designed for families, couples, and adventure travelers.',
     btnText: 'Explore packages',
-    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg1
   },
   {
     title: 'International Holiday Packages',
     desc: 'Discover world-class destinations with customized international tours, luxury stays, and seamless travel planning.',
     btnText: 'Explore packages',
-    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg2
   },
   {
     title: 'Flight Booking',
     desc: 'Easy and hassle-free domestic and international flight bookings with flexible travel options and expert assistance.',
     btnText: 'Book your tickets',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a6150090f14?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg3
   },
   {
     title: 'Train Booking',
     desc: 'Convenient railway ticket booking services for smooth and comfortable travel experiences across destinations.',
     btnText: 'Book your tickets',
-    image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg4
   },
   {
     title: 'Hotel & Resort Booking',
     desc: 'Premium hotels, luxury resorts, and handpicked stays tailored to your comfort, style, and travel needs.',
     btnText: 'Find your stay',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg5
   },
   {
     title: 'Luxury Cruise Booking',
     desc: 'Experience unforgettable cruise vacations with premium onboard experiences, scenic destinations, and curated luxury journeys.',
     btnText: 'Explore cruises',
-    image: 'https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg6
   },
   {
     title: 'Visa Assistance',
     desc: 'Professional visa guidance and documentation support to simplify your international travel process.',
     btnText: 'Get visa support',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg7
   },
   {
     title: 'Travel Insurance',
     desc: 'Comprehensive travel protection for safe, secure, and worry-free journeys anywhere in the world.',
     btnText: 'Secure your journey',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg8
   },
   {
     title: 'Transfers',
     desc: 'Comfortable airport transfers and local transportation services for seamless travel from arrival to departures.',
     btnText: 'Book transfers',
-    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800'
+    image: travelSolutionImg9
   }
 ];
 

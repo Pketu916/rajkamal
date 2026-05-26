@@ -4,42 +4,49 @@ import Container from '../ui/Container';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
 
+import destinationsImg1 from '../../assets/images/Destinations/Destinations 1.png';
+import destinationsImg2 from '../../assets/images/Destinations/Destinations 2.png';
+import destinationsImg3 from '../../assets/images/Destinations/Destinations 3.png';
+import destinationsImg4 from '../../assets/images/Destinations/Destinations 4.png';
+import destinationsImg5 from '../../assets/images/Destinations/Destinations 5.png';
+import destinationsImg6 from '../../assets/images/Destinations/Destinations 6.png';
+
 const destinations = [
   {
     id: 1,
     name: 'Europe',
     packages: '01 Package',
-    image: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=800'
+    image: destinationsImg1
   },
   {
     id: 2,
     name: 'South East Asia',
     packages: '03 Package',
-    image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800'
+    image: destinationsImg2
   },
   {
     id: 3,
     name: 'Middle East',
     packages: '02 Package',
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800'
+    image: destinationsImg3
   },
   {
     id: 4,
     name: 'Vietnam',
     packages: '02 Package',
-    image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&q=80&w=800'
+    image: destinationsImg4
   },
   {
     id: 5,
     name: 'Africa',
     packages: '04 Package',
-    image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800'
+    image: destinationsImg5
   },
   {
     id: 6,
     name: 'Singapore & Malaysia',
     packages: '01 Package',
-    image: 'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&q=80&w=800'
+    image: destinationsImg6
   }
 ];
 

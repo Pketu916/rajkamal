@@ -54,7 +54,7 @@ const PackageCard = ({ data }) => {
       {/* Content Side */}
       <div className="w-full lg:w-1/2 flex flex-col items-start">
         {/* Badge */}
-        <Badge variant="outline" className="mb-2 md:mb-4 text-text-main border-border-light rounded-xl px-4 py-1.5  ">
+        <Badge variant="outline" className="mb-2 md:mb-[14px] text-text-main border-border-light rounded-[14px] px-4 py-2 ">
           <span className="mr-2">{data.badge.split(' ')[0]}</span> 
           <span className="font-medium text-primary">{data.badge.split(' ').slice(1).join(' ')}</span>
         </Badge>
@@ -65,7 +65,7 @@ const PackageCard = ({ data }) => {
         </h3>
         
         {/* Duration */}
-        <p className="font-bold text-text-main mb-2 md:mb-3">{data.duration}</p>
+        <p className="font-semibold text-text-main mb-2 md:mb-3">{data.duration}</p>
         
         {/* Description */}
         <p className="text-text-muted mb-4 md:mb-6 leading-relaxed max-w-lg">

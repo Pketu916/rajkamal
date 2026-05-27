@@ -24,7 +24,7 @@ const FooterSection = () => {
       url: "https://instagram.com",
       icon: (
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         
           xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@ const FooterSection = () => {
       url: "https://facebook.com",
       icon: (
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         
           xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ const FooterSection = () => {
       url: "https://linkedin.com",
       icon: (
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         
           xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@ const FooterSection = () => {
       url: "https://youtube.com",
       icon: (
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
         
           xmlns="http://www.w3.org/2000/svg">
@@ -106,14 +106,14 @@ const FooterSection = () => {
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-0">
           {/* Left Side: Logo & Info */}
           <div className="w-full lg:w-4/12 flex flex-col items-start">
-            <a href="#" className="inline-flex items-center mb-6 cursor-pointer">
+            <a href="#" className="inline-flex items-center mb-4 cursor-pointer">
               <img
                 src={logoImg}
                 alt="Rajkamal Tours & Travels"
                 className="h-14 w-auto object-contain"
               />
             </a>
-            <p className="text-text-main text-sm font-medium leading-relaxed mb-8 max-w-[340px]">
+            <p className="text-text-main text-sm font-medium leading-relaxed mb-6 max-w-[340px]">
               Creating seamless and unforgettable travel experiences with over
               20 years of trusted expertise.
             </p>
@@ -133,10 +133,10 @@ const FooterSection = () => {
           </div>
 
           {/* Right Side: Links & Newsletter */}
-          <div className="w-full lg:w-7/12 flex flex-wrap sm:flex-row  gap-10">
+          <div className="w-full max-w-[790px] flex flex-wrap md:flex-nowrap md:justify-between sm:flex-row  gap-10">
             {/* Quick Links */}
             <div className="flex flex-col items-start min-w-[120px]">
-              <h4 className="text-text-main text-lg font-medium mb-4">
+              <h4 className="text-text-main text-lg !font-medium mb-4 font-sans">
                 Quick links
               </h4>
               <ul className="flex flex-col md:gap-3 gap-1">
@@ -187,7 +187,7 @@ const FooterSection = () => {
 
             {/* Services */}
             <div className="flex flex-col items-start min-w-[142px]">
-              <h4 className="text-text-main text-lg font-medium mb-4">
+              <h4 className="text-text-main text-lg !font-medium mb-4 font-sans">
                 Services
               </h4>
               <ul className="flex flex-col md:gap-3 gap-1 ">
@@ -237,8 +237,8 @@ const FooterSection = () => {
             </div>
 
             {/* Newsletter & Socials */}
-            <div className="flex flex-col items-start w-full max-w-[360px]">
-              <h4 className="text-text-main text-xl font-medium mb-2">
+            <div className="flex flex-col items-start w-full max-w-[360px] md:max-w-[400px] md:pl-8">
+              <h4 className="text-text-main text-2xl !font-medium mb-2 font-sans">
                 Subscribe for Travel Updates
               </h4>
               <p className="text-text-main text-sm leading-relaxed mb-6">
@@ -292,14 +292,14 @@ const FooterSection = () => {
       </Container>
 
       {/* Infinite Seamless Marquee Row */}
-      <div className="w-full py-8 md:py-12 relative overflow-hidden flex select-none md:mt-8">
+      <div className="w-full py-8 md:py-12 relative overflow-hidden flex select-none md:mt-8 border-b border-[#00000026]">
         {/* Animated Marquee Container - Track 1 */}
         <div className="flex shrink-0 items-center gap-3 md:gap-6 animate-marquee whitespace-nowrap pr-3 md:pr-6">
           {marqueeItems.map((item, idx) => (
             <div
               key={`track1-${idx}`}
               className="flex items-center gap-4 md:gap-6">
-              <span className="font-sans text-4xl md:text-5xl lg:text-[64px] font-medium text-text-main tracking-tight">
+              <span className="font-sans text-4xl md:text-5xl  !font-medium text-text-main tracking-tight">
                 {item.text}
               </span>
               <img
@@ -320,7 +320,7 @@ const FooterSection = () => {
             <div
               key={`track2-${idx}`}
               className="flex items-center gap-4 md:gap-6">
-              <span className="font-sans text-4xl md:text-5xl lg:text-[64px] font-medium text-text-main tracking-tight">
+              <span className="font-sans text-4xl md:text-5xl !font-medium text-text-main tracking-tight">
                 {item.text}
               </span>
               <img
@@ -336,7 +336,7 @@ const FooterSection = () => {
 
       {/* Bottom Bar: Copyright & Policy Links */}
       <Container className="max-w-[1280px]">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border-light py-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4  py-6">
           <div className="flex flex-col sm:flex-row items-center gap-2">
             <p className="text-sm text-text-main font-medium text-center sm:text-left">
               &copy; 2026 Rajkamal holidays. All Rights Reserved.

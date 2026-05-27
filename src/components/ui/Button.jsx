@@ -8,7 +8,7 @@ const Button = ({
   ...props
 }) => {
   // Base classes: Note we use rounded-xl per user preference
-  const baseClasses = 'inline-flex items-center justify-center !font-medium transition-colors focus:outline-none rounded-[14px] cursor-pointer';
+  const baseClasses = 'inline-flex items-center justify-center !font-medium transition-colors focus:outline-none !rounded-[14px] cursor-pointer';
   
   const getVariantClasses = () => {
     switch (variant) {
@@ -28,12 +28,12 @@ const Button = ({
   const getSizeClasses = () => {
     switch (size) {
       case 'sm':
-        return 'px-4 py-2 text-sm';
+        return 'px-4 py-2 text-base';
       case 'lg':
         return 'px-[22px] py-[14px] text-lg';
       case 'md':
       default:
-        return 'px-6 py-3 text-base';
+        return 'px-[22px] py-[14px] text-base';
     }
   };
 

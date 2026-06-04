@@ -78,14 +78,14 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <Section className="bg-white">
+    <Section className="bg-white mt-6 md:mt-0">
       <Container className="max-w-[1280px]">
         {/* Top & Middle Layout: Asymmetrical Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 md:mb-[42px]">
           {/* Left + Center Wrapper (col-span-2) */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             {/* Top Row: Image 1 and Text */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 lg:gap-12">
               <div className="w-full">
                 <img
                   src={about1}
@@ -94,7 +94,7 @@ const FeaturesSection = () => {
                 />
               </div>
 
-              <div className="flex flex-col items-start pt-12">
+              <div className="flex flex-col items-start pt-8 md:pt-12 ">
                 <Badge
                   variant="outline"
                   className="mb-1 md:mb-3 border-none px-0 text-text-muted bg-transparent">

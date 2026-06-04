@@ -8,7 +8,7 @@ const Button = ({
   ...props
 }) => {
   // Base classes: Note we use rounded-xl per user preference
-  const baseClasses = 'inline-flex items-center justify-center !font-medium transition-colors focus:outline-none !rounded-[14px] cursor-pointer';
+  const baseClasses = 'inline-flex items-center justify-center !font-medium transition-colors focus:outline-none !rounded-[12px] md:!rounded-[14px] cursor-pointer';
   
   const getVariantClasses = () => {
     switch (variant) {

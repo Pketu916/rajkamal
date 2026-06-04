@@ -184,27 +184,37 @@ const TestimonialsSection = () => {
 
       {/* Video Popup Modal */}
       {isVideoOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl animate-fade-in">
-            {/* Close Button */}
-            <button 
-              onClick={() => setIsVideoOpen(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-xl text-white transition-colors cursor-pointer"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-sm"
+          onClick={() => setIsVideoOpen(false)}
+        >
+          <div 
+            className="relative w-full max-w-5xl flex flex-col animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button - Outside */}
+            <div className="flex justify-end mb-3 md:mb-4">
+              <button 
+                onClick={() => setIsVideoOpen(false)}
+                className="w-10 h-10 flex items-center justify-center bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-xl text-white transition-colors cursor-pointer"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
             
-            {/* YouTube Iframe */}
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/35npVaFGHMY?autoplay=1" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-            ></iframe>
+            {/* YouTube Iframe Container */}
+            <div className="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/35npVaFGHMY?autoplay=1" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       )}

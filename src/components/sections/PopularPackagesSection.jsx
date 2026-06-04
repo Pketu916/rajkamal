@@ -117,7 +117,7 @@ const PopularPackagesSection = () => {
                   <span className="inline-flex items-center text-primary text-sm md:text-base">
                     <span className="underline underline-offset-3 ">Explore Package</span>
                     {/* Rotate-45 by default (up-right), rotates to 0 (right) on hover */}
-                    <svg  className=" w-3 h-3 ml-2 transform rotate-0 group-hover:rotate-45 transition-transform duration-300"  viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg  className="w-2 h-2 md:w-3 md:h-3 ml-1.5 md:ml-2 transform rotate-0 group-hover:rotate-45 transition-transform duration-300"  viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M10.5357 0.535645L0.535721 10.5356" stroke="#CA4700" stroke-width="1.07143" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M10.5357 7.87136V0.535645H3.20001" stroke="#CA4700" stroke-width="1.07143" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

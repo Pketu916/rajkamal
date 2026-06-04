@@ -136,7 +136,7 @@ const FooterSection = () => {
           <div className="w-full max-w-[790px] flex flex-wrap md:flex-nowrap md:justify-between sm:flex-row  md:gap-10 gap-6">
             {/* Quick Links */}
             <div className="flex flex-col items-start min-w-[120px]">
-              <h4 className="text-text-main text-lg !font-medium mb-4 font-sans">
+              <h4 className="text-text-main text-lg !font-medium mb-2 md:mb-4 font-sans">
                 Quick links
               </h4>
               <ul className="flex flex-col md:gap-3 gap-1">
@@ -187,7 +187,7 @@ const FooterSection = () => {
 
             {/* Services */}
             <div className="flex flex-col items-start min-w-[142px]">
-              <h4 className="text-text-main text-lg !font-medium mb-4 font-sans">
+              <h4 className="text-text-main text-lg !font-medium mb-2 md:mb-4 font-sans">
                 Services
               </h4>
               <ul className="flex flex-col md:gap-3 gap-1 ">

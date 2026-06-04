@@ -78,7 +78,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <Section className="py-16 md:py-[100px] bg-white">
+    <Section className="bg-white">
       <Container className="max-w-[1280px]">
         {/* Top & Middle Layout: Asymmetrical Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 md:mb-[42px]">
@@ -101,7 +101,7 @@ const FeaturesSection = () => {
                   <BadgeStarIcon /> About us
                 </Badge>
 
-                <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main mb-2 md:mb-6 leading-tight">
+                <h2 className="text-[26px] md:text-[32px] font-semibold text-text-main mb-2 md:mb-6 leading-tight">
                   Turning Travel Dreams Into Seamless Journeys
                 </h2>
 
@@ -125,7 +125,7 @@ const FeaturesSection = () => {
 
             {/* Middle Row: "Why Choose Us?" Heading */}
             <div className="mt-12 lg:mt-auto pt-12">
-              <h2 className="text-[28px] md:text-[32px] !font-normal text-text-main">
+              <h2 className="text-[26px] md:text-[32px] !font-normal text-text-main">
                 Why Choose Us?
               </h2>
             </div>

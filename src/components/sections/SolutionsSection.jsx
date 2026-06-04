@@ -79,13 +79,13 @@ const SolutionsSection = () => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <Section className="py-16 md:py-[100px] bg-bg-alt overflow-hidden">
+    <Section className="bg-bg-alt overflow-hidden">
       <Container className="max-w-[1280px]">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-6">
           <div className="max-w-3xl">
             <div className="max-w-[460px]">
-              <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main mb-2 md:mb-4 leading-tight">
+              <h2 className="text-[26px] md:text-[32px] font-semibold text-text-main mb-2 md:mb-4 leading-tight">
                 Curated Travel Solutions for Every Journey
               </h2>
             </div>
@@ -95,7 +95,7 @@ const SolutionsSection = () => {
           </div>
           
           {/* Desktop Navigation Buttons */}
-          <div className="hidden md:flex gap-4 flex-shrink-0">
+          <div className="hidden md:flex gap-2 flex-shrink-0">
             <button 
               className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
                 isBeginning ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'
@@ -154,25 +154,40 @@ const SolutionsSection = () => {
                   />
                   
                   {/* Content Overlay */}
-                  {/* Smooth height transition using percentages */}
-                  <div className="absolute left-[6px] right-[6px] bottom-[6px]  h-[45%] group-hover:h-[calc(100%-12px)]  transition-all duration-500 ease-in-out">
+                  <div className="absolute left-[6px] right-[6px] bottom-[6px] flex flex-col justify-end">
                     
                     {/* The Inner White Box */}
-                    <div className="bg-white w-full h-full p-4 md:p-6 flex flex-col rounded-xl md:rounded-xl shadow-lg border border-border-light/50">
+                    <div className="bg-white w-full p-4 md:p-6 flex flex-col rounded-xl shadow-lg border border-border-light/50 transition-all duration-500 ease-in-out">
                       
                       <h3 className="text-lg md:text-2xl text-text-main mb-2 md:mb-3 !font-normal leading-tight">
                         {solution.title}
                       </h3>
                       
-                      <p className="text-text-muted text-sm md:text-base leading-relaxed line-clamp-4">
-                        {solution.desc}
-                      </p>
+                      {/* Text Section (Mobile: hidden by default. Desktop: visible by default. Shows on hover/tap) */}
+                      <div className="grid grid-rows-[0fr] md:grid-rows-[1fr] group-hover:grid-rows-[1fr] group-active:grid-rows-[1fr] group-focus:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                        <div className="overflow-hidden">
+                          <p className="text-text-muted text-sm md:text-base leading-relaxed line-clamp-4">
+                            {solution.desc}
+                          </p>
+                        </div>
+                      </div>
                       
-                      {/* Button Container - Hidden by default, reveals on hover */}
-                      <div className="mt-auto pt-4 hidden group-hover:flex">
-                        <Button variant="primary" className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                          {solution.btnText}
-                        </Button>
+                      {/* Expansion Filler (Creates the huge white box effect on hover like in the Figma design) */}
+                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] group-active:grid-rows-[1fr] group-focus:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                        <div className="overflow-hidden">
+                          <div className="h-[80px] md:h-[180px]"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Button Container (Mobile: visible by default. Desktop: hidden by default. Shows on hover) */}
+                      <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] group-hover:grid-rows-[1fr] group-active:grid-rows-[1fr] group-focus:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
+                        <div className="overflow-hidden">
+                          <div className="pt-3 md:pt-4 opacity-100 md:opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transition-opacity duration-500 ease-in-out">
+                            <Button variant="primary">
+                              {solution.btnText}
+                            </Button>
+                          </div>
+                        </div>
                       </div>
                       
                     </div>
@@ -185,7 +200,7 @@ const SolutionsSection = () => {
         </div>
 
         {/* Mobile Navigation Buttons */}
-        <div className="flex md:hidden justify-center gap-4 mt-8 w-full">
+        <div className="flex md:hidden justify-center gap-2 mt-8 w-full">
           <button 
             className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
               isBeginning ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'

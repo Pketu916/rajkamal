@@ -6,7 +6,7 @@ const Badge = ({
   icon,
   className = ''
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center py-1 text-text-xs !font-medium uppercase tracking-wider rounded-[14px] border';
+  const baseClasses = 'inline-flex items-center justify-center py-1 text-text-xs !font-medium tracking-wider rounded-[14px] border';
   
   const getVariantClasses = () => {
     switch (variant) {

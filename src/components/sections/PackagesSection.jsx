@@ -79,7 +79,7 @@ const PackageCard = ({ data }) => {
             {data.includes.map((item, idx) => (
               <React.Fragment key={idx}>
                 <div className="flex items-center text-[15px] text-text-main">
-                  <svg className="w-4 h-4 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
                   {item}
@@ -120,16 +120,16 @@ const PackageCard = ({ data }) => {
 
 const PackagesSection = () => {
   return (
-    <Section className="py-16 md:py-[100px] bg-white">
+    <Section className="bg-white">
       <Container className="max-w-[1280px]">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-6">
           <div className=" max-w-lg ">
-            <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight">
+            <h2 className="text-[26px] md:text-[32px] font-semibold text-text-main leading-tight">
               Limited-Time Fixed Departure Packages
             </h2>
           </div>
-          <div className="max-w-[349px]">
+          <div className="md:max-w-[349px]">
             <p className="text-text-main text-sm md:text-base leading-relaxed">
               Discover exciting group departures to handpicked international destinations with seamless planning, curated experiences, and exclusive travel offers.
             </p>

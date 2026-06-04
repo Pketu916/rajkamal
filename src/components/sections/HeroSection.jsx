@@ -102,7 +102,7 @@ const HeroSection = () => {
 
       {/* Text Content */}
       <div ref={textRef} className="relative z-20 text-center px-4 mt-32 md:mt-48 max-w-5xl mx-auto">
-        <h1 className=" text-3xl md:text-6xl lg:text-7xl font-bold text-text-main mb-2 md:mb-6 tracking-tight leading-tight">
+        <h1 className=" text-[26px] md:text-6xl lg:text-7xl font-bold text-text-main mb-2 md:mb-6 tracking-tight leading-tight">
           Curated Holidays. Seamless Experiences.
         </h1>
         <p className="text-sm md:text-lg text-text-main max-w-3xl mx-auto leading-relaxed ">

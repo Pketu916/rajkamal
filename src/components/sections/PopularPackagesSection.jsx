@@ -23,7 +23,7 @@ const PopularPackagesSection = () => {
   const popularPackages = packagesData.filter(pkg => pkg.isActive && pkg.isFeatured);
 
   return (
-    <Section className="py-16 md:py-[100px] bg-bg-alt">
+    <Section className="bg-bg-alt">
       <Container className="max-w-[1280px]">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-8">
@@ -33,7 +33,7 @@ const PopularPackagesSection = () => {
             <Badge variant="outline" className="mb-1 md:mb-4 text-text-muted border-none px-0 bg-transparent">
               <BadgeStarIcon /> Popular packages
             </Badge>
-            <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight mb-2 md:mb-0">
+            <h2 className="text-[26px] md:text-[32px] font-semibold text-text-main leading-tight mb-2 md:mb-0">
               Explore Our Popular<br />Travel Packages
             </h2>
           </div>
@@ -55,7 +55,7 @@ const PopularPackagesSection = () => {
             <a 
               key={pkg.id} 
               href={`#package-${pkg.id}`}
-              className="group flex flex-col bg-[#f5f5f5] p-2 md:p-3 rounded-xl cursor-pointer shadow-lg transition-all duration-300"
+              className="group flex flex-col bg-[#f5f5f5] p-2 rounded-xl cursor-pointer transition-all duration-300"
             >
               {/* Image */}
               <div className="w-full h-[220px] overflow-hidden rounded-xl mb-2 md:mb-3 flex-shrink-0">
@@ -67,7 +67,7 @@ const PopularPackagesSection = () => {
               </div>
               
               {/* Content Inner Box */}
-              <div className="bg-white rounded-xl p-6 md:p-8 flex flex-col flex-grow">
+              <div className="bg-white rounded-xl p-4 lg:p-8 flex flex-col flex-grow">
                 {/* Title */}
                 <h3 className="text-[20px] md:text-[24px] text-text-main mb-3 leading-tight !font-normal">
                   {pkg.title}

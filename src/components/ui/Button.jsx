@@ -33,7 +33,7 @@ const Button = ({
         return 'px-[22px] py-[14px] text-lg';
       case 'md':
       default:
-        return 'px-[22px] py-[14px] text-base';
+        return 'px-[22px] py-2.5 md:py-[14px] text-base';
     }
   };
 

@@ -10,18 +10,18 @@ const Section = ({
   const getPaddingTop = () => {
     switch (paddingTop) {
       case 'none': return 'pt-0';
-      case 'half': return 'pt-8 md:pt-12';
-      case 'full': return 'pt-16 md:pt-24';
-      default: return 'pt-16 md:pt-24';
+      case 'half': return 'pt-6 md:pt-10';
+      case 'full': return 'pt-10 md:pt-[60px]';
+      default: return 'pt-10 md:pt-[60px]';
     }
   };
 
   const getPaddingBottom = () => {
     switch (paddingBottom) {
       case 'none': return 'pb-0';
-      case 'half': return 'pb-8 md:pb-12';
-      case 'full': return 'pb-16 md:pb-24';
-      default: return 'pb-16 md:pb-24';
+      case 'half': return 'pb-6 md:pb-10';
+      case 'full': return 'pb-10 md:pb-[60px]';
+      default: return 'pb-10 md:pb-[60px]';
     }
   };
 

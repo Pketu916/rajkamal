@@ -53,7 +53,7 @@ const destinations = [
 
 const DestinationsSection = () => {
   return (
-    <Section className="py-16 md:py-[100px] bg-white">
+    <Section className="bg-white">
       <Container className="max-w-[1280px]">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-8">
@@ -63,13 +63,13 @@ const DestinationsSection = () => {
             <Badge variant="outline" className="mb-1 md:mb-4 text-text-muted border-none px-0 bg-transparent">
               <BadgeStarIcon /> Popular destinations
             </Badge>
-            <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight">
+            <h2 className="text-[26px] md:text-[32px] font-semibold text-text-main leading-tight">
               Discover Our Most<br />Loved Travel Destinations
             </h2>
           </div>
           
           {/* Right Side */}
-          <div className="max-w-lg flex flex-col items-start">
+          <div className="max-w-lg flex flex-col items-start md:max-w-1/2">
             <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-4">
               Explore handpicked destinations filled with breathtaking landscapes, unforgettable experiences, and luxury travel moments across the world.
             </p>

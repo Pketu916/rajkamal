@@ -103,7 +103,7 @@ const FooterSection = () => {
     <footer className="w-full bg-[#f9fafb] border-t border-border-light pt-16 md:pt-24 pb-0 overflow-hidden">
       <Container className="max-w-[1280px]">
         {/* Upper Footer: Flex Layout Left and Right */}
-        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-8 mb-0">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 mb-0">
           {/* Left Side: Logo & Info */}
           <div className="w-full lg:w-4/12 flex flex-col items-start">
             <a href="#" className="inline-flex items-center mb-4 cursor-pointer">
@@ -133,7 +133,7 @@ const FooterSection = () => {
           </div>
 
           {/* Right Side: Links & Newsletter */}
-          <div className="w-full max-w-[790px] flex flex-wrap md:flex-nowrap md:justify-between sm:flex-row  gap-10">
+          <div className="w-full max-w-[790px] flex flex-wrap md:flex-nowrap md:justify-between sm:flex-row  md:gap-10 gap-6">
             {/* Quick Links */}
             <div className="flex flex-col items-start min-w-[120px]">
               <h4 className="text-text-main text-lg !font-medium mb-4 font-sans">
@@ -249,7 +249,7 @@ const FooterSection = () => {
               {/* Newsletter Input Block */}
               <form
                 onSubmit={handleSubscribe}
-                className="w-full flex flex-col gap-2.5 mb-8">
+                className="w-full flex flex-col gap-2.5 mb-6 md:mb-8">
                 <div className="flex w-full">
                   <input
                     type="email"
@@ -336,32 +336,32 @@ const FooterSection = () => {
 
       {/* Bottom Bar: Copyright & Policy Links */}
       <Container className="max-w-[1280px]">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4  py-6">
-          <div className="flex flex-col sm:flex-row items-center gap-2">
-            <p className="text-sm text-text-main font-medium text-center sm:text-left">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-0 py-6">
+          <div className="flex flex-col md:flex-row items-center gap-2">
+            <p className="text-sm text-text-main font-medium text-center md:text-left">
               &copy; 2026 Rajkamal holidays. All Rights Reserved.
             </p>
-            <span className="hidden sm:inline text-[#00000033]">|</span>
-            <p className="text-sm text-text-main font-medium text-center sm:text-left">
-              Powered by <a href="https://appsrow.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline underline-offset-2">Appsrow</a>
+            <span className="hidden md:inline text-[#00000033]">|</span>
+            <p className="text-sm text-text-main font-medium text-center md:text-left">
+              Powered by <a href="https://appsrow.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-2">Appsrow</a>
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-text-main font-medium">
             <a
               href="#"
-              className="hover:text-primary transition-colors cursor-pointer">
+              className="hover:text-primary transition-colors cursor-pointer whitespace-nowrap">
               Privacy Policy
             </a>
-            <span className="text-[#00000033] mx-1">|</span>
+            <span className="text-[#00000033] mx-1 hidden sm:inline">|</span>
             <a
               href="#"
-              className="hover:text-primary transition-colors cursor-pointer">
+              className="hover:text-primary transition-colors cursor-pointer whitespace-nowrap">
               Terms &amp; Conditions
             </a>
-            <span className="text-[#00000033] mx-1">|</span>
+            <span className="text-[#00000033] mx-1 hidden sm:inline">|</span>
             <a
               href="#"
-              className="hover:text-primary transition-colors cursor-pointer">
+              className="hover:text-primary transition-colors cursor-pointer whitespace-nowrap">
               Cookie Policy
             </a>
           </div>

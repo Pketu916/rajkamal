@@ -14,13 +14,13 @@ const TestimonialsSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
-    <Section className="py-16 md:py-[100px] bg-white overflow-hidden">
+    <Section className="bg-white overflow-hidden">
       <Container className="max-w-[1280px]">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-6">
           <div className="max-w-xl">
-            <h2 className="text-[28px] md:text-[32px] font-semibold text-text-main leading-tight mb-2 md:mb-3">
+            <h2 className="text-[26px] md:text-[32px] font-semibold text-text-main leading-tight mb-2 md:mb-3">
               What Our Travelers Say
             </h2>
             <p className="text-text-muted text-sm md:text-base leading-relaxed max-w-[420px]">
@@ -29,7 +29,7 @@ const TestimonialsSection = () => {
           </div>
           
           {/* Desktop Navigation Buttons */}
-          <div className="hidden md:flex gap-4 flex-shrink-0">
+          <div className="hidden md:flex gap-2 flex-shrink-0">
             <button 
               className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
                 isBeginning ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'
@@ -155,7 +155,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Mobile Navigation Buttons */}
-        <div className="flex md:hidden justify-center gap-4 mt-8 w-full">
+        <div className="flex md:hidden justify-center gap-2 mt-8 w-full">
           <button 
             className={`inline-flex items-center justify-center h-10 w-10 md:w-15 md:h-15 rounded-xl transition-colors focus:outline-none ${
               isBeginning ? 'bg-[#F2F2F2] text-gray-400 cursor-not-allowed' : 'bg-primary text-white hover:bg-primary-hover cursor-pointer'

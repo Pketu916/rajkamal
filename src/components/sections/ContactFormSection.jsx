@@ -86,7 +86,7 @@ const ContactFormSection = () => {
   };
 
   return (
-    <Section className="relative w-full py-16 lg:py-[100px] overflow-hidden">
+    <Section className="relative w-full !py-5 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <img 
@@ -101,7 +101,7 @@ const ContactFormSection = () => {
           
           {/* Left Side: Content */}
           <div className="w-full lg:w-1/2 flex flex-col items-start justify-center mt-0 md:mt-10">
-            <h2 className="text-[28px] md:text-[48px] leading-[1.1] font-semibold text-text-main mb-2 md:mb-6">
+            <h2 className="text-[26px] md:text-[48px] leading-[1.1] font-semibold text-text-main mb-2 md:mb-6">
               Let's Turn Your Travel Dreams Into Reality
             </h2>
             <p className="text-text-main font-medium text-base md:text-lg mb-8 md:mb-10 max-w-[500px] leading-relaxed">
@@ -121,7 +121,7 @@ const ContactFormSection = () => {
           {/* Right Side: Form with Glassmorphism (Blur effect) */}
           <div className="w-full lg:w-1/2">
             <div className="bg-[#00000066] backdrop-blur-xl rounded-xl p-6 md:p-10 border border-white/20 shadow-2xl">
-              <h3 className="text-white text-[28px] md:text-[32px] mb-6 md:mb-8">
+              <h3 className="text-white text-[26px] md:text-[32px] mb-6 md:mb-8">
                 Let's Plan Your Holiday
               </h3>
               

@@ -16,16 +16,53 @@ const ContactFormSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+  const [errors, setErrors] = useState({});
 
   const googleScriptUrl = import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'Full Name is required';
+    } else if (formData.fullName.trim().length < 3) {
+      newErrors.fullName = 'Full Name must be at least 3 characters';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email Address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.contactNumber.trim()) {
+      newErrors.contactNumber = 'Contact Number is required';
+    } else if (!/^\d{10}$/.test(formData.contactNumber.replace(/[\s-]/g, ''))) {
+      newErrors.contactNumber = 'Please enter a valid 10-digit contact number';
+    }
+
+    if (!formData.groupSize) newErrors.groupSize = 'Group Size is required';
+    if (!formData.preferredDestination) newErrors.preferredDestination = 'Please select a destination';
+    if (!formData.mealPlan) newErrors.mealPlan = 'Please select a meal plan';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validate()) {
+      return;
+    }
 
     if (!googleScriptUrl) {
       setSubmitStatus({
@@ -75,6 +112,7 @@ const ContactFormSection = () => {
         mealPlan: '',
         message: ''
       });
+      setErrors({});
     } catch (error) {
       setSubmitStatus({
         type: 'error',
@@ -125,7 +163,7 @@ const ContactFormSection = () => {
                 Let's Plan Your Holiday
               </h3>
               
-              <form className="flex flex-col gap-4 md:gap-6" onSubmit={handleSubmit}>
+              <form className="flex flex-col gap-4 md:gap-6" onSubmit={handleSubmit} noValidate>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   {/* Full Name */}
@@ -136,10 +174,10 @@ const ContactFormSection = () => {
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm" 
+                      className={`bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:bg-black/40 transition-all text-sm ${errors.fullName ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`} 
                       placeholder="Enter your full name" 
-                      required
                     />
+                    {errors.fullName && <span className="text-red-400 text-xs mt-1.5">{errors.fullName}</span>}
                   </div>
                   
                   {/* Email Address */}
@@ -150,10 +188,10 @@ const ContactFormSection = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm" 
+                      className={`bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:bg-black/40 transition-all text-sm ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`} 
                       placeholder="Enter your email address" 
-                      required
                     />
+                    {errors.email && <span className="text-red-400 text-xs mt-1.5">{errors.email}</span>}
                   </div>
 
                   {/* Contact Number */}
@@ -164,10 +202,10 @@ const ContactFormSection = () => {
                       name="contactNumber"
                       value={formData.contactNumber}
                       onChange={handleChange}
-                      className="bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm" 
+                      className={`bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:bg-black/40 transition-all text-sm ${errors.contactNumber ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`} 
                       placeholder="Enter your phone number" 
-                      required
                     />
+                    {errors.contactNumber && <span className="text-red-400 text-xs mt-1.5">{errors.contactNumber}</span>}
                   </div>
 
                   {/* Group Size */}
@@ -178,7 +216,7 @@ const ContactFormSection = () => {
                         name="groupSize"
                         value={formData.groupSize}
                         onChange={handleChange}
-                        className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none"
+                        className={`w-full bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white focus:outline-none focus:bg-black/40 transition-all text-sm appearance-none ${errors.groupSize ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`}
                       >
                         <option value="01" className="text-text-main">01</option>
                         <option value="02" className="text-text-main">02</option>
@@ -191,6 +229,7 @@ const ContactFormSection = () => {
                         </svg>
                       </div>
                     </div>
+                    {errors.groupSize && <span className="text-red-400 text-xs mt-1.5">{errors.groupSize}</span>}
                   </div>
 
                   {/* Preferred Destination */}
@@ -201,13 +240,13 @@ const ContactFormSection = () => {
                         name="preferredDestination"
                         value={formData.preferredDestination}
                         onChange={handleChange}
-                        className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none"
-                        required
+                        className={`w-full bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:bg-black/40 transition-all text-sm appearance-none ${errors.preferredDestination ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`}
                       >
                         <option value="" disabled className="text-text-main">Select your destination</option>
                         <option value="europe" className="text-text-main">Europe</option>
                         <option value="asia" className="text-text-main">Asia</option>
                         <option value="middle-east" className="text-text-main">Middle East</option>
+                        <option value="other" className="text-text-main">Other</option>
                       </select>
                       <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -215,6 +254,7 @@ const ContactFormSection = () => {
                         </svg>
                       </div>
                     </div>
+                    {errors.preferredDestination && <span className="text-red-400 text-xs mt-1.5">{errors.preferredDestination}</span>}
                   </div>
 
                   {/* Meal Plan */}
@@ -225,8 +265,7 @@ const ContactFormSection = () => {
                         name="mealPlan"
                         value={formData.mealPlan}
                         onChange={handleChange}
-                        className="w-full bg-[#FFFFFF33] border border-white/30 rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-black/40 transition-all text-sm appearance-none"
-                        required
+                        className={`w-full bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:bg-black/40 transition-all text-sm appearance-none ${errors.mealPlan ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`}
                       >
                         <option value="" disabled className="text-text-main">Select your meal</option>
                         <option value="breakfast" className="text-text-main">Breakfast</option>
@@ -239,6 +278,7 @@ const ContactFormSection = () => {
                         </svg>
                       </div>
                     </div>
+                    {errors.mealPlan && <span className="text-red-400 text-xs mt-1.5">{errors.mealPlan}</span>}
                   </div>
                 </div>
                 

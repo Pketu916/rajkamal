@@ -44,13 +44,13 @@ const Header = () => {
       <Container className="max-w-[1400px]">
         <div className="flex items-center justify-between gap-3 relative z-50 bg-transparent">
           {/* Logo */}
-          <div className="flex-shrink-0 cursor-pointer">
+          <a href="/" className="flex-shrink-0 cursor-pointer block">
             <img
               src={logoImg}
               alt="Rajkamal Tours & Travels"
               className="h-10 md:h-12 w-auto object-contain"
             />
-          </div>
+          </a>
 
           {/* Center Navigation & Right Actions Grouped */}
           <div className="hidden min-[1200px]:flex items-center gap-2">

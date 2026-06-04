@@ -106,7 +106,7 @@ const FooterSection = () => {
         <div className="flex flex-col lg:flex-row justify-between gap-8 mb-0">
           {/* Left Side: Logo & Info */}
           <div className="w-full lg:w-4/12 flex flex-col items-start">
-            <a href="#" className="inline-flex items-center mb-4 cursor-pointer">
+            <a href="/" className="inline-flex items-center mb-4 cursor-pointer">
               <img
                 src={logoImg}
                 alt="Rajkamal Tours & Travels"

@@ -86,7 +86,7 @@ const ContactFormSection = () => {
   };
 
   return (
-    <Section className="relative w-full !py-5 overflow-hidden">
+    <Section className="relative w-full md:!py-5 !py-8 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <img 

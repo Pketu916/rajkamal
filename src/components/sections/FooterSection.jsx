@@ -299,7 +299,7 @@ const FooterSection = () => {
             <div
               key={`track1-${idx}`}
               className="flex items-center gap-4 md:gap-6">
-              <span className="font-sans text-4xl md:text-5xl  !font-medium text-text-main tracking-tight">
+              <span className="font-sans text-3xl md:text-5xl  !font-medium text-text-main tracking-tight">
                 {item.text}
               </span>
               <img

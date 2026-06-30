@@ -89,6 +89,7 @@ const ContactFormSection = () => {
       }).format(new Date());
 
       const payload = JSON.stringify({
+        formType: 'lead',
         ...formData,
         submittedAt: submittedAtIndia
       });
@@ -226,10 +227,10 @@ const ContactFormSection = () => {
                         onChange={handleChange}
                         className={`w-full bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white focus:outline-none focus:bg-black/40 transition-all text-sm appearance-none ${errors.groupSize ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`}
                       >
-                        <option value="01" className="text-text-main">01</option>
-                        <option value="02" className="text-text-main">02</option>
-                        <option value="03" className="text-text-main">03</option>
-                        <option value="04+" className="text-text-main">04+</option>
+                        <option value="01" className="text-text-main bg-white text-gray-700 font-normal">01</option>
+                        <option value="02" className="text-text-main bg-white text-gray-700 font-normal">02</option>
+                        <option value="03" className="text-text-main bg-white text-gray-700 font-normal">03</option>
+                        <option value="04+" className="text-text-main bg-white text-gray-700 font-normal">04+</option>
                       </select>
                       <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,11 +251,30 @@ const ContactFormSection = () => {
                         onChange={handleChange}
                         className={`w-full bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:bg-black/40 transition-all text-sm appearance-none ${errors.preferredDestination ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`}
                       >
-                        <option value="" disabled className="text-text-main">Select your destination</option>
-                        <option value="europe" className="text-text-main">Europe</option>
-                        <option value="asia" className="text-text-main">Asia</option>
-                        <option value="middle-east" className="text-text-main">Middle East</option>
-                        <option value="other" className="text-text-main">Other</option>
+                        <option value="" disabled className="text-text-main bg-white text-gray-700">Select your destination</option>
+                        <optgroup label="Domestic Destinations" className="text-text-main font-semibold bg-white text-gray-700">
+                          <option value="Andaman & Nicobar" className="text-text-main bg-white text-gray-700 font-normal">Andaman & Nicobar</option>
+                          <option value="Gujarat" className="text-text-main bg-white text-gray-700 font-normal">Gujarat</option>
+                          <option value="Himachal & Himalayas" className="text-text-main bg-white text-gray-700 font-normal">Himachal & Himalayas</option>
+                          <option value="Kashmir" className="text-text-main bg-white text-gray-700 font-normal">Kashmir</option>
+                          <option value="Kerala" className="text-text-main bg-white text-gray-700 font-normal">Kerala</option>
+                          <option value="Lakshadweep" className="text-text-main bg-white text-gray-700 font-normal">Lakshadweep</option>
+                          <option value="Madhya Pradesh" className="text-text-main bg-white text-gray-700 font-normal">Madhya Pradesh</option>
+                          <option value="North East India" className="text-text-main bg-white text-gray-700 font-normal">North East India</option>
+                          <option value="Sikkim" className="text-text-main bg-white text-gray-700 font-normal">Sikkim</option>
+                          <option value="Uttarakhand" className="text-text-main bg-white text-gray-700 font-normal">Uttarakhand</option>
+                          <option value="Uttar Pradesh" className="text-text-main bg-white text-gray-700 font-normal">Uttar Pradesh</option>
+                        </optgroup>
+                        <optgroup label="International Destinations" className="text-text-main font-semibold bg-white text-gray-700">
+                          <option value="Bhutan" className="text-text-main bg-white text-gray-700 font-normal">Bhutan</option>
+                          <option value="Indonesia" className="text-text-main bg-white text-gray-700 font-normal">Indonesia</option>
+                          <option value="Nepal" className="text-text-main bg-white text-gray-700 font-normal">Nepal</option>
+                          <option value="Singapore" className="text-text-main bg-white text-gray-700 font-normal">Singapore</option>
+                          <option value="Sri Lanka" className="text-text-main bg-white text-gray-700 font-normal">Sri Lanka</option>
+                          <option value="Thailand" className="text-text-main bg-white text-gray-700 font-normal">Thailand</option>
+                          <option value="Vietnam" className="text-text-main bg-white text-gray-700 font-normal">Vietnam</option>
+                          <option value="Other" className="text-text-main bg-white text-gray-700 font-normal">Other Destination</option>
+                        </optgroup>
                       </select>
                       <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -275,10 +295,12 @@ const ContactFormSection = () => {
                         onChange={handleChange}
                         className={`w-full bg-[#FFFFFF33] border rounded-xl px-4 py-3.5 text-white placeholder:text-white/60 focus:outline-none focus:bg-black/40 transition-all text-sm appearance-none ${errors.mealPlan ? 'border-red-400 focus:border-red-400' : 'border-white/30 focus:border-white'}`}
                       >
-                        <option value="" disabled className="text-text-main">Select your meal</option>
-                        <option value="breakfast" className="text-text-main">Breakfast</option>
-                        <option value="half-board" className="text-text-main">Half Board</option>
-                        <option value="full-board" className="text-text-main">Full Board</option>
+                        <option value="" disabled className="text-text-main bg-white text-gray-700">Select your meal plan</option>
+                        <option value="EP (Room Only)" className="text-text-main bg-white text-gray-700 font-normal">EP (Room Only)</option>
+                        <option value="CP (Breakfast Only)" className="text-text-main bg-white text-gray-700 font-normal">CP (Breakfast Only)</option>
+                        <option value="MAP (Breakfast & Dinner)" className="text-text-main bg-white text-gray-700 font-normal">MAP (Breakfast & Dinner)</option>
+                        <option value="AP (All Meals)" className="text-text-main bg-white text-gray-700 font-normal">AP (All Meals - Breakfast, Lunch & Dinner)</option>
+                        <option value="Other" className="text-text-main bg-white text-gray-700 font-normal">Other / Customized</option>
                       </select>
                       <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
                         <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -13,7 +13,18 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
-  const searchResults = packagesDataFull.filter(pkg => pkg.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  const searchResults = packagesDataFull.filter(pkg => {
+    if (!searchTerm) return true;
+    const term = searchTerm.toLowerCase();
+    return (
+      (pkg.title && pkg.title.toLowerCase().includes(term)) ||
+      (pkg.destination && pkg.destination.toLowerCase().includes(term)) ||
+      (pkg.category && pkg.category.toLowerCase().includes(term)) ||
+      (pkg.description && pkg.description.toLowerCase().includes(term)) ||
+      (pkg.desc && pkg.desc.toLowerCase().includes(term)) ||
+      (pkg.duration && pkg.duration.toLowerCase().includes(term))
+    );
+  });
 
   // Handle scroll event to change header background
   useEffect(() => {
@@ -191,7 +202,10 @@ const Header = () => {
                     </>
                   ) : (
                     <button 
-                      onClick={() => setIsSearchExpanded(true)}
+                      onClick={() => {
+                        setIsSearchExpanded(true);
+                        setIsSearchOpen(true);
+                      }}
                       className="flex items-center justify-center w-full h-full bg-[#e5e7eb] hover:bg-[#d1d5db] rounded-[10px] text-text-main transition-colors cursor-pointer"
                     >
                       <svg
@@ -219,8 +233,8 @@ const Header = () => {
                   )}
                 </div>
                 {/* Search Dropdown */}
-                {isSearchOpen && searchTerm && (
-                  <div className="absolute top-full mt-2 right-0 w-[320px] bg-white border border-gray-200 rounded-xl shadow-lg max-h-[400px] overflow-y-auto z-50">
+                {isSearchOpen && (
+                  <div data-lenis-prevent className="absolute top-full mt-2 right-0 w-[320px] bg-white border border-gray-200 rounded-xl shadow-lg max-h-[400px] overflow-y-auto z-50">
                     {searchResults.length > 0 ? (
                       searchResults.map(pkg => (
                         <div 
@@ -233,8 +247,8 @@ const Header = () => {
                             setIsSearchOpen(false);
                           }}
                         >
-                          <img src={pkg.image} alt={pkg.title} className="w-12 h-12 object-cover rounded-lg" />
-                          <div>
+                          <img src={pkg.image} alt={pkg.title} className="w-12 h-12 object-cover rounded-lg flex-shrink-0" />
+                          <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-text-main line-clamp-1">{pkg.title}</p>
                             <p className="text-xs text-text-muted">{pkg.duration}</p>
                           </div>
@@ -306,7 +320,7 @@ const Header = () => {
       </Container>
 
       {/* Mobile Menu Overlay */}
-      <div className={`min-[1200px]:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col overflow-y-auto transition-all duration-300 ease-in-out origin-top ${isMobileMenuOpen ? "max-h-[calc(100vh-70px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none border-t-0"}`}>
+      <div data-lenis-prevent className={`min-[1200px]:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col overflow-y-auto transition-all duration-300 ease-in-out origin-top ${isMobileMenuOpen ? "max-h-[calc(100vh-70px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none border-t-0"}`}>
         <nav className="flex flex-col p-4">
           <a
             href="#"
@@ -453,32 +467,28 @@ const Header = () => {
             </button>
           </div>
           {/* Search Results */}
-          <div className="flex-1 overflow-y-auto p-4">
-            {searchTerm ? (
-              searchResults.length > 0 ? (
-                searchResults.map(pkg => (
-                  <div 
-                    key={pkg.id} 
-                    className="p-3 mb-3 border border-gray-100 rounded-xl hover:bg-gray-50 cursor-pointer flex items-center gap-4 shadow-sm"
-                    onClick={() => {
-                      const el = document.getElementById(`package-${pkg.id}`);
-                      if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      setSearchTerm('');
-                      setIsMobileSearchOpen(false);
-                    }}
-                  >
-                    <img src={pkg.image} alt={pkg.title} className="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
-                    <div>
-                      <p className="text-base font-medium text-text-main line-clamp-2">{pkg.title}</p>
-                      <p className="text-sm text-text-muted mt-1">{pkg.duration}</p>
-                    </div>
+          <div data-lenis-prevent className="flex-1 overflow-y-auto p-4">
+            {searchResults.length > 0 ? (
+              searchResults.map(pkg => (
+                <div 
+                  key={pkg.id} 
+                  className="p-3 mb-3 border border-gray-100 rounded-xl hover:bg-gray-50 cursor-pointer flex items-center gap-4 shadow-sm"
+                  onClick={() => {
+                    const el = document.getElementById(`package-${pkg.id}`);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    setSearchTerm('');
+                    setIsMobileSearchOpen(false);
+                  }}
+                >
+                  <img src={pkg.image} alt={pkg.title} className="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+                  <div className="flex-grow min-w-0">
+                    <p className="text-base font-medium text-text-main line-clamp-2">{pkg.title}</p>
+                    <p className="text-sm text-text-muted mt-1">{pkg.duration}</p>
                   </div>
-                ))
-              ) : (
-                <div className="p-4 text-base text-gray-500 text-center mt-10">No packages found</div>
-              )
+                </div>
+              ))
             ) : (
-              <div className="p-4 text-base text-gray-500 text-center mt-10">Type to start searching...</div>
+              <div className="p-4 text-base text-gray-500 text-center mt-10">No packages found</div>
             )}
           </div>
         </div>

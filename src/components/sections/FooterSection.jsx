@@ -7,14 +7,58 @@ import travelIcon from "../../assets/images/Footer/Travel seamlessly.svg";
 
 const FooterSection = () => {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubscribe = (e) => {
+  const googleScriptUrl = import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK_URL;
+
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (email.trim()) {
+    if (!email.trim()) return;
+
+    if (!googleScriptUrl) {
+      console.warn("Google Sheets webhook is not configured. Add VITE_GOOGLE_SHEETS_WEBHOOK_URL in your .env file.");
       setIsSubscribed(true);
       setEmail("");
       setTimeout(() => setIsSubscribed(false), 5000);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrorMsg("");
+
+    try {
+      const submittedAtIndia = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(new Date());
+
+      const payload = JSON.stringify({
+        formType: 'subscribe',
+        email: email.trim(),
+        submittedAt: submittedAtIndia
+      });
+
+      await fetch(googleScriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: payload
+      });
+
+      setIsSubscribed(true);
+      setEmail("");
+      setTimeout(() => setIsSubscribed(false), 5000);
+    } catch (error) {
+      setErrorMsg("Unable to subscribe right now. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -261,13 +305,19 @@ const FooterSection = () => {
                   />
                   <button
                     type="submit"
-                    className="bg-primary hover:bg-primary-hover text-white text-sm font-medium px-6 py-3 rounded-r-xl transition-colors whitespace-nowrap">
-                    Subscribe
+                    disabled={isSubmitting}
+                    className="bg-primary hover:bg-primary-hover text-white text-sm font-medium px-6 py-3 rounded-r-xl transition-colors whitespace-nowrap disabled:opacity-75">
+                    {isSubmitting ? "Subscribing..." : "Subscribe"}
                   </button>
                 </div>
                 {isSubscribed && (
                   <p className="text-xs text-green-600 font-semibold px-2">
                     Thank you for subscribing!
+                  </p>
+                )}
+                {errorMsg && (
+                  <p className="text-xs text-red-500 font-semibold px-2">
+                    {errorMsg}
                   </p>
                 )}
               </form>

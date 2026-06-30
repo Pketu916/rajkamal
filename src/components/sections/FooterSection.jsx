@@ -142,7 +142,7 @@ const FooterSection = () => {
               <ul className="flex flex-col md:gap-3 gap-1">
                 <li>
                   <a
-                    href="#about"
+                    href="#"
                     className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
                     Home
                   </a>

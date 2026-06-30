@@ -78,7 +78,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <Section className="bg-white mt-6 md:mt-0">
+    <Section id="about" className="bg-white mt-6 md:mt-0">
       <Container className="max-w-[1280px]">
         {/* Top & Middle Layout: Asymmetrical Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 md:mb-[42px]">

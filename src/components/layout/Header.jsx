@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Container from "../ui/Container";
 import logoImg from "../../assets/images/Logo/rajkamal-tours-travels-logo.svg";
+import packagesDataFull from "../../data/packages.json";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const searchResults = packagesDataFull.filter(pkg => pkg.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   // Handle scroll event to change header background
   useEffect(() => {
@@ -156,72 +163,145 @@ const Header = () => {
 
             {/* Right Actions */}
             <div className="flex items-center gap-2">
-              {/* Search Icon */}
-              <div className="p-[3px] border border-[#00000033] rounded-xl bg-white">
-                <button className="flex items-center justify-center w-[38px] h-[38px] bg-[#e5e7eb] hover:bg-[#d1d5db] rounded-xl text-text-main transition-colors cursor-pointer">
-                  <svg
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
-                      stroke="#171717"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M22 22L20 20"
-                      stroke="#171717"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
+              {/* Search Block */}
+              <div className="relative flex items-center h-[48px]">
+                <div className={`flex items-center bg-white border border-[#00000033] rounded-[14px] transition-all duration-300 ease-in-out overflow-hidden h-full ${isSearchExpanded ? 'w-[250px] px-4' : 'w-[48px] p-1 border-none'}`}>
+                  {isSearchExpanded ? (
+                    <>
+                      <svg className="w-5 h-5 text-gray-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                      <input 
+                        type="text" 
+                        autoFocus
+                        placeholder="Search packages..." 
+                        className="w-full bg-transparent outline-none text-sm text-text-main placeholder-gray-500"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onFocus={() => setIsSearchOpen(true)}
+                        onBlur={() => {
+                          setTimeout(() => {
+                            setIsSearchOpen(false);
+                            if (!searchTerm) {
+                              setIsSearchExpanded(false);
+                            }
+                          }, 200);
+                        }}
+                      />
+                    </>
+                  ) : (
+                    <button 
+                      onClick={() => setIsSearchExpanded(true)}
+                      className="flex items-center justify-center w-full h-full bg-[#e5e7eb] hover:bg-[#d1d5db] rounded-[10px] text-text-main transition-colors cursor-pointer"
+                    >
+                      <svg
+                        className="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+                          stroke="#171717"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M22 22L20 20"
+                          stroke="#171717"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {/* Search Dropdown */}
+                {isSearchOpen && searchTerm && (
+                  <div className="absolute top-full mt-2 right-0 w-[320px] bg-white border border-gray-200 rounded-xl shadow-lg max-h-[400px] overflow-y-auto z-50">
+                    {searchResults.length > 0 ? (
+                      searchResults.map(pkg => (
+                        <div 
+                          key={pkg.id} 
+                          className="p-3 border-b border-gray-100 hover:bg-gray-50 cursor-pointer flex items-center gap-3"
+                          onClick={() => {
+                            const el = document.getElementById(`package-${pkg.id}`);
+                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                            setSearchTerm('');
+                            setIsSearchOpen(false);
+                          }}
+                        >
+                          <img src={pkg.image} alt={pkg.title} className="w-12 h-12 object-cover rounded-lg" />
+                          <div>
+                            <p className="text-sm font-medium text-text-main line-clamp-1">{pkg.title}</p>
+                            <p className="text-xs text-text-muted">{pkg.duration}</p>
+                          </div>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="p-4 text-sm text-gray-500 text-center">No packages found</div>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* CTA Button */}
-              <button className="bg-primary hover:bg-primary-hover text-white text-md !font-medium px-5 py-3 rounded-[14px] transition-colors cursor-pointer ">
+              <a 
+                href="https://wa.me/919274584480?text=Hello%20Rajkamal%20Tours%2C%20I%20would%20like%20to%20plan%20my%20holiday."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary hover:bg-primary-hover text-white text-md !font-medium px-5 py-3 rounded-[14px] transition-colors cursor-pointer "
+              >
                 Plan my holiday
-              </button>
+              </a>
             </div>
           </div>
 
-          {/* Mobile Menu Button (Hamburger/Close) */}
-          <button
-            className="min-[1200px]:hidden p-2 text-text-main focus:outline-none cursor-pointer"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? (
-              <svg
-                className="w-7 h-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+          {/* Mobile Right Actions */}
+          <div className="flex items-center gap-2 min-[1200px]:hidden relative z-50">
+            {/* Mobile Search Icon */}
+            <button
+              className="p-2 text-text-main focus:outline-none cursor-pointer"
+              onClick={() => setIsMobileSearchOpen(true)}>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-            ) : (
-              <svg
-                className="w-7 h-7"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
+            </button>
+            {/* Mobile Menu Button (Hamburger/Close) */}
+            <button
+              className="p-2 text-text-main focus:outline-none cursor-pointer"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? (
+                <svg
+                  className="w-7 h-7"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-7 h-7"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </Container>
 
@@ -331,26 +411,78 @@ const Header = () => {
 
         {/* Mobile Actions */}
         <div className="flex flex-col p-4 border-t border-gray-100 gap-4 mt-auto pb-8">
-          <button className="flex items-center justify-center gap-2 bg-[#F2F2F2] text-text-main font-semibold px-6 py-3.5 w-full max-w-2xs rounded-xl transition-colors  cursor-pointer">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-            Search
-          </button>
-          <button className="bg-primary hover:bg-primary-hover text-white font-semibold px-6 py-3.5 rounded-xl transition-colors w-full max-w-2xs cursor-pointer">
+          <a 
+            href="https://wa.me/919274584480?text=Hello%20Rajkamal%20Tours%2C%20I%20would%20like%20to%20plan%20my%20holiday."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold px-6 py-3.5 rounded-xl transition-colors w-full max-w-2xs cursor-pointer"
+          >
             Plan my holiday
-          </button>
+          </a>
         </div>
       </div>
+
+      {/* Mobile Full Screen Search Overlay */}
+      {isMobileSearchOpen && (
+        <div className="fixed inset-0 bg-white z-[100] flex flex-col min-[1200px]:hidden">
+          {/* Header of search overlay */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-100 mt-2">
+            <div className="flex-1 flex items-center bg-[#F2F2F2] rounded-xl px-4 py-3">
+              <svg className="w-5 h-5 text-gray-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input 
+                type="text" 
+                autoFocus
+                placeholder="Search packages..." 
+                className="w-full bg-transparent outline-none text-base text-text-main placeholder-gray-500"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+            <button 
+              onClick={() => {
+                setIsMobileSearchOpen(false);
+                setSearchTerm("");
+              }}
+              className="ml-3 p-2 text-text-main cursor-pointer hover:bg-gray-100 rounded-full transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          {/* Search Results */}
+          <div className="flex-1 overflow-y-auto p-4">
+            {searchTerm ? (
+              searchResults.length > 0 ? (
+                searchResults.map(pkg => (
+                  <div 
+                    key={pkg.id} 
+                    className="p-3 mb-3 border border-gray-100 rounded-xl hover:bg-gray-50 cursor-pointer flex items-center gap-4 shadow-sm"
+                    onClick={() => {
+                      const el = document.getElementById(`package-${pkg.id}`);
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      setSearchTerm('');
+                      setIsMobileSearchOpen(false);
+                    }}
+                  >
+                    <img src={pkg.image} alt={pkg.title} className="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+                    <div>
+                      <p className="text-base font-medium text-text-main line-clamp-2">{pkg.title}</p>
+                      <p className="text-sm text-text-muted mt-1">{pkg.duration}</p>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="p-4 text-base text-gray-500 text-center mt-10">No packages found</div>
+              )
+            ) : (
+              <div className="p-4 text-base text-gray-500 text-center mt-10">Type to start searching...</div>
+            )}
+          </div>
+        </div>
+      )}
     </header>
   );
 };

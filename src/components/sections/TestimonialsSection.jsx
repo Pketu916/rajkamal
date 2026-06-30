@@ -14,7 +14,7 @@ const TestimonialsSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
-    <Section className="bg-white overflow-hidden">
+    <Section id="testimonials" className="bg-white overflow-hidden">
       <Container className="max-w-[1280px]">
         
         {/* Header Section */}

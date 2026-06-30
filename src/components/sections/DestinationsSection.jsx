@@ -12,48 +12,33 @@ import destinationsImg4 from '../../assets/images/Destinations/Destinations 4.pn
 import destinationsImg5 from '../../assets/images/Destinations/Destinations 5.png';
 import destinationsImg6 from '../../assets/images/Destinations/Destinations 6.png';
 
-const destinations = [
-  {
-    id: 1,
-    name: 'Europe',
-    packages: '01 Package',
-    image: destinationsImg1
-  },
-  {
-    id: 2,
-    name: 'South East Asia',
-    packages: '03 Package',
-    image: destinationsImg2
-  },
-  {
-    id: 3,
-    name: 'Middle East',
-    packages: '02 Package',
-    image: destinationsImg3
-  },
-  {
-    id: 4,
-    name: 'Vietnam',
-    packages: '02 Package',
-    image: destinationsImg4
-  },
-  {
-    id: 5,
-    name: 'Africa',
-    packages: '04 Package',
-    image: destinationsImg5
-  },
-  {
-    id: 6,
-    name: 'Singapore & Malaysia',
-    packages: '01 Package',
-    image: destinationsImg6
+import packagesDataFull from '../../data/packages.json';
+
+const destinationsMap = {};
+packagesDataFull.forEach(pkg => {
+  const destName = pkg.destination || 'Other';
+  if (!destinationsMap[destName]) {
+    destinationsMap[destName] = {
+      id: destName,
+      name: destName,
+      count: 0,
+      image: pkg.image // Use the first package's image as the destination cover
+    };
   }
-];
+  destinationsMap[destName].count += 1;
+});
+
+// Convert map to array and sort by count descending
+const destinations = Object.values(destinationsMap)
+  .sort((a, b) => b.count - a.count)
+  .map(dest => ({
+    ...dest,
+    packages: `${dest.count < 10 ? '0' + dest.count : dest.count} Package${dest.count > 1 ? 's' : ''}`
+  }));
 
 const DestinationsSection = () => {
   return (
-    <Section className="bg-white">
+    <Section id="destinations" className="bg-white">
       <Container className="max-w-[1280px]">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-8">
@@ -73,9 +58,9 @@ const DestinationsSection = () => {
             <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-4">
               Explore handpicked destinations filled with breathtaking landscapes, unforgettable experiences, and luxury travel moments across the world.
             </p>
-            <Button variant="primary" className="hidden md:flex rounded-xl cursor-pointer px-6 py-3 mt-4 md:mt-0">
+            <a href="#packages" className="hidden md:inline-flex items-center justify-center bg-primary text-white hover:bg-primary-hover rounded-[12px] md:rounded-[14px] cursor-pointer px-6 py-3 mt-4 md:mt-0 font-medium transition-colors">
               Explore more destinations
-            </Button>
+            </a>
           </div>
         </div>
 
@@ -104,9 +89,9 @@ const DestinationsSection = () => {
 
         {/* Mobile CTA */}
         <div className="flex md:hidden justify-center mt-8 w-full">
-          <Button variant="primary" className="rounded-xl cursor-pointer px-6 py-3 w-full">
+          <a href="#packages" className="inline-flex items-center justify-center bg-primary text-white hover:bg-primary-hover rounded-[12px] md:rounded-[14px] cursor-pointer px-6 py-3 w-full font-medium transition-colors">
             Explore more destinations
-          </Button>
+          </a>
         </div>
       </Container>
     </Section>

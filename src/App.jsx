@@ -44,7 +44,7 @@ function App() {
       <FeaturesSection />
       <SolutionsSection />
       <PackagesSection />
-      <DestinationsSection />
+      {/* <DestinationsSection /> */}
       <PopularPackagesSection />
       <TestimonialsSection />
       <ContactFormSection />

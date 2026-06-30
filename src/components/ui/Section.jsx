@@ -6,6 +6,7 @@ const Section = ({
   bg = 'main', // 'main' | 'alt' | 'primary'
   paddingTop = 'full', // 'none' | 'half' | 'full'
   paddingBottom = 'full', // 'none' | 'half' | 'full'
+  id
 }) => {
   const getPaddingTop = () => {
     switch (paddingTop) {
@@ -35,7 +36,7 @@ const Section = ({
   };
 
   return (
-    <section className={`w-full ${getBgColor()} ${getPaddingTop()} ${getPaddingBottom()} ${className}`}>
+    <section id={id} className={`w-full scroll-mt-24 md:scroll-mt-32 ${getBgColor()} ${getPaddingTop()} ${getPaddingBottom()} ${className}`}>
       {children}
     </section>
   );

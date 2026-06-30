@@ -124,7 +124,7 @@ const ContactFormSection = () => {
   };
 
   return (
-    <Section className="relative w-full md:!py-5 !py-8 overflow-hidden">
+    <Section id="contact" className="relative w-full md:!py-5 !py-8 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <img 
@@ -146,13 +146,21 @@ const ContactFormSection = () => {
               From dream vacations and luxury stays to visa assistance and seamless travel planning Rajkamal holidays is here to make every journey effortless, memorable, and stress-free.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" className="px-8 py-3.5 text-base shadow-lg hover:shadow-xl cursor-pointer">
+              <a 
+                href="#packages"
+                className="inline-flex items-center justify-center bg-primary text-white rounded-[12px] md:rounded-[14px] hover:bg-primary-hover px-8 py-3.5 text-base shadow-lg hover:shadow-xl cursor-pointer transition-all font-semibold"
+              >
                 Discover your journey
-              </Button>
+              </a>
               {/* Secondary button using backdrop blur */}
-              <button className="rounded-xl px-8 py-3.5 bg-white/30 border border-white/60 hover:bg-white/50 text-text-main font-semibold backdrop-blur-md transition-all shadow-sm cursor-pointer">
+              <a 
+                href="https://wa.me/919274584480?text=Hello%20Rajkamal%20Tours%2C%20I%20would%20like%20to%20talk%20to%20an%20expert."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-[12px] md:rounded-[14px] px-8 py-3.5 bg-white/30 border border-white/60 hover:bg-white/50 text-text-main font-semibold backdrop-blur-md transition-all shadow-sm cursor-pointer"
+              >
                 Talk to our expert
-              </button>
+              </a>
             </div>
           </div>
 

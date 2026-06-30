@@ -19,11 +19,11 @@ const popularPackageImagesById = {
 };
 
 const PopularPackagesSection = () => {
-  // Filter active and featured packages
-  const popularPackages = packagesData.filter(pkg => pkg.isActive && pkg.isFeatured);
+  // Use all packages except the first 4
+  const popularPackages = packagesData.slice(4);
 
   return (
-    <Section className="bg-bg-alt">
+    <Section id="popular" className="bg-bg-alt">
       <Container className="max-w-[1280px]">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16 gap-2 md:gap-8">
@@ -43,9 +43,9 @@ const PopularPackagesSection = () => {
             <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-4 ">
               Curated domestic and international travel experiences designed for seamless and unforgettable journeys.
             </p>
-            <Button variant="primary" className="hidden md:flex rounded-xl cursor-pointer px-6 py-3 mt-4 md:mt-0">
+            <a href="#packages" className="hidden md:inline-flex items-center justify-center bg-primary text-white hover:bg-primary-hover rounded-[12px] md:rounded-[14px] cursor-pointer px-6 py-3 mt-4 md:mt-0 font-medium transition-colors">
               Explore more packages
-            </Button>
+            </a>
           </div>
         </div>
 
@@ -54,8 +54,11 @@ const PopularPackagesSection = () => {
           {popularPackages.map(pkg => (
             <a 
               key={pkg.id} 
-              href={`#package-${pkg.id}`}
-              className="group flex flex-col bg-[#f5f5f5] p-2 rounded-xl cursor-pointer transition-all duration-300"
+              id={`package-${pkg.id}`}
+              href={pkg.whatsappLink || `#package-${pkg.id}`}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex flex-col scroll-mt-24 md:scroll-mt-32 bg-[#f5f5f5] p-2 rounded-xl cursor-pointer transition-all duration-300"
             >
               {/* Image */}
               <div className="w-full h-[220px] overflow-hidden rounded-xl mb-2 md:mb-3 flex-shrink-0">
@@ -78,7 +81,8 @@ const PopularPackagesSection = () => {
                   {pkg.description}
                 </p>
                 
-                {/* Includes */}
+                {/* Includes - Hidden as requested */}
+                {/*
                 <div className="mb-3">
                   <p className="text-base !text-[#090909CC] font-medium text-text-main mb-2">Includes</p>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -97,6 +101,7 @@ const PopularPackagesSection = () => {
                     ))}
                   </div>
                 </div>
+                */}
                 
                 {/* Duration */}
                 <div className="mb-5 mt-auto">
@@ -131,9 +136,9 @@ const PopularPackagesSection = () => {
 
         {/* Mobile CTA */}
         <div className="flex md:hidden justify-center mt-8 w-full">
-          <Button variant="primary" className="rounded-xl cursor-pointer px-6 py-3 w-full justify-center">
+          <a href="#packages" className="inline-flex items-center justify-center bg-primary text-white hover:bg-primary-hover rounded-[12px] md:rounded-[14px] cursor-pointer px-6 py-3 w-full font-medium transition-colors">
             Explore more packages
-          </Button>
+          </a>
         </div>
 
       </Container>

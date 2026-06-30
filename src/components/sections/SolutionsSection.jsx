@@ -21,55 +21,64 @@ const solutions = [
     title: 'Domestic Holiday Packages',
     desc: 'Explore beautiful destinations across India with carefully curated holiday experiences designed for families, couples, and adventure travelers.',
     btnText: 'Explore packages',
-    image: travelSolutionImg1
+    image: travelSolutionImg1,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'International Holiday Packages',
     desc: 'Discover world-class destinations with customized international tours, luxury stays, and seamless travel planning.',
     btnText: 'Explore packages',
-    image: travelSolutionImg2
+    image: travelSolutionImg2,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'Flight Booking',
     desc: 'Easy and hassle-free domestic and international flight bookings with flexible travel options and expert assistance.',
     btnText: 'Book your tickets',
-    image: travelSolutionImg3
+    image: travelSolutionImg3,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'Train Booking',
     desc: 'Convenient railway ticket booking services for smooth and comfortable travel experiences across destinations.',
     btnText: 'Book your tickets',
-    image: travelSolutionImg4
+    image: travelSolutionImg4,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'Hotel & Resort Booking',
     desc: 'Premium hotels, luxury resorts, and handpicked stays tailored to your comfort, style, and travel needs.',
     btnText: 'Find your stay',
-    image: travelSolutionImg5
+    image: travelSolutionImg5,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'Luxury Cruise Booking',
     desc: 'Experience unforgettable cruise vacations with premium onboard experiences, scenic destinations, and curated luxury journeys.',
     btnText: 'Explore cruises',
-    image: travelSolutionImg6
+    image: travelSolutionImg6,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'Visa Assistance',
     desc: 'Professional visa guidance and documentation support to simplify your international travel process.',
     btnText: 'Get visa support',
-    image: travelSolutionImg7
+    image: travelSolutionImg7,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'Travel Insurance',
     desc: 'Comprehensive travel protection for safe, secure, and worry-free journeys anywhere in the world.',
     btnText: 'Secure your journey',
-    image: travelSolutionImg8
+    image: travelSolutionImg8,
+    link: 'https://wa.me/919274584480'
   },
   {
     title: 'Transfers',
     desc: 'Comfortable airport transfers and local transportation services for seamless travel from arrival to departures.',
     btnText: 'Book transfers',
-    image: travelSolutionImg9
+    image: travelSolutionImg9,
+    link: 'https://wa.me/919274584480'
   }
 ];
 
@@ -183,9 +192,11 @@ const SolutionsSection = () => {
                       <div className="grid grid-rows-[1fr] md:grid-rows-[0fr] group-hover:grid-rows-[1fr] group-active:grid-rows-[1fr] group-focus:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
                         <div className="overflow-hidden">
                           <div className="pt-3 md:pt-4 opacity-100 md:opacity-0 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transition-opacity duration-500 ease-in-out">
-                            <Button variant="primary">
-                              {solution.btnText}
-                            </Button>
+                            <a href={solution.link} target="_blank" rel="noopener noreferrer">
+                              <Button variant="primary">
+                                {solution.btnText}
+                              </Button>
+                            </a>
                           </div>
                         </div>
                       </div>

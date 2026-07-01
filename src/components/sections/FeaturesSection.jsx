@@ -5,8 +5,8 @@ import Badge from "../ui/Badge";
 import Button from "../ui/Button";
 import BadgeStarIcon from "../ui/BadgeStarIcon";
 
-import about1 from "../../assets/images/why-choose-us/About us 1.png";
-import about2 from "../../assets/images/why-choose-us/About us 2.png";
+import about1 from "../../assets/images/why-choose-us/About us 1.webp";
+import about2 from "../../assets/images/why-choose-us/About us 2.webp";
 
 const features = [
   {
@@ -114,12 +114,7 @@ const FeaturesSection = () => {
                   stress-free and focus on creating unforgettable memories.
                 </p>
 
-                <Button
-                  variant="primary"
-                  size="md"
-                  className="hidden md:flex rounded-xl">
-                  Explore our journey
-                </Button>
+
               </div>
             </div>
 
@@ -161,15 +156,7 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Mobile CTA */}
-        <div className="flex md:hidden justify-center mt-8 w-full">
-          <Button
-            variant="primary"
-            size="md"
-            className="rounded-xl w-full justify-center">
-            Explore our journey
-          </Button>
-        </div>
+
       </Container>
     </Section>
   );

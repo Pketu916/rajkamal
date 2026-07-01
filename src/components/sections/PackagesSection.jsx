@@ -4,8 +4,8 @@ import Container from '../ui/Container';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
 
-import pkg1 from '../../assets/images/Packages/Packages-1.png';
-import pkg2 from '../../assets/images/Packages/Packages-2.png';
+import pkg1 from '../../assets/images/Packages/Packages-1.webp';
+import pkg2 from '../../assets/images/Packages/Packages-2.webp';
 
 import packagesDataFull from '../../data/packages.json';
 

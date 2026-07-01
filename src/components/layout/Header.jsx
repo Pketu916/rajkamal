@@ -66,6 +66,8 @@ const Header = () => {
             <img
               src={logoImg}
               alt="Rajkamal Tours & Travels"
+              loading="eager"
+              fetchPriority="high"
               className="h-10 md:h-12 w-auto object-contain"
             />
           </a>
@@ -84,87 +86,16 @@ const Header = () => {
                 className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
                 About us
               </a>
-              <a
-                href="#destinations"
-                className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                Destinations
-              </a>
+
               <a
                 href="#packages"
                 className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
                 Tour packages
               </a>
 
-              {/* Services Dropdown Trigger */}
-              <div
-                className="relative"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}>
-                <button
-                  className={`flex items-center px-4 py-2 text-sm font-medium transition-colors ${
-                    isServicesOpen
-                      ? "bg-white  rounded-xl text-text-main"
-                      : "text-text-muted hover:text-primary"
-                  }`}>
-                  Services
-                  <svg
-                    className={`w-3.5 h-3.5 ml-1 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
 
-                {/* Dropdown Menu */}
-                {isServicesOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-[12px] w-48 z-50">
-                    <div className="bg-[#F2F2F2] border border-[#00000033] rounded-xl shadow-lg py-2 overflow-hidden items-center flex flex-col">
-                      <a
-                        href="#"
-                        className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
-                        Fixed departures
-                      </a>{" "}
-                      <a
-                        href="#"
-                        className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
-                        Flight booking
-                      </a>
-                      <a
-                        href="#"
-                        className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
-                        Cruise booking
-                      </a>
-                      <a
-                        href="#"
-                        className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
-                        Visa support
-                      </a>
-                      <a
-                        href="#"
-                        className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors border-b border-[#00000033]">
-                        Travel insurance
-                      </a>
-                      <a
-                        href="#"
-                        className="px-5 py-3 text-sm font-medium text-text-muted  hover:text-primary transition-colors">
-                        passport application
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </div>
 
-              <a
-                href="#blog"
-                className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                Blog
-              </a>
+
               <a
                 href="#contact"
                 className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
@@ -334,12 +265,7 @@ const Header = () => {
             className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
             About us
           </a>
-          <a
-            href="#destinations"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
-            Destinations
-          </a>
+
           <a
             href="#packages"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -347,74 +273,9 @@ const Header = () => {
             Tour packages
           </a>
 
-          {/* Mobile Services Accordion */}
-          <div className="flex flex-col">
-            <button
-              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-              className="flex items-center justify-between px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 rounded-xl transition-colors">
-              Services
-              <svg
-                className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
 
-            {isMobileServicesOpen && (
-              <div className="flex flex-col ml-4 pl-4 border-l-2 border-gray-100 mt-1 gap-1">
-                <a
-                  href="#"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                  Fixed departures
-                </a>
-                <a
-                  href="#"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                  Flight booking
-                </a>
-                <a
-                  href="#"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                  Cruise booking
-                </a>
-                <a
-                  href="#"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                  Visa support
-                </a>
-                <a
-                  href="#"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                  Travel insurance
-                </a>
-                <a
-                  href="#"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-text-muted hover:text-primary transition-colors">
-                  Passport application
-                </a>
-              </div>
-            )}
-          </div>
 
-          <a
-            href="#blog"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="px-4 py-3 text-base font-medium text-text-main hover:bg-gray-50 hover:text-primary rounded-xl transition-colors">
-            Blog
-          </a>
+
           <a
             href="#contact"
             onClick={() => setIsMobileMenuOpen(false)}

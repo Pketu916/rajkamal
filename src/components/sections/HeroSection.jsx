@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import bgImg from '../../assets/images/home bg.png';
-import girlImg from '../../assets/images/Home girl.png';
-import planeImg from '../../assets/images/Hero plane.png';
+import bgImg from '../../assets/images/home bg.webp';
+import girlImg from '../../assets/images/Home girl.webp';
+import planeImg from '../../assets/images/Hero plane.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,6 +81,8 @@ const HeroSection = () => {
         ref={bgRef}
         src={bgImg} 
         alt="Snowy Mountains" 
+        loading="eager"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover object-bottom origin-bottom"
       />
       
@@ -89,6 +91,8 @@ const HeroSection = () => {
         ref={girlRef}
         src={girlImg} 
         alt="Traveler looking at mountains" 
+        loading="eager"
+        fetchPriority="high"
         className="absolute bottom-0 left-0 right-0 mx-auto w-full max-w-[800px] h-auto object-contain z-10"
       />
 
@@ -97,6 +101,7 @@ const HeroSection = () => {
         ref={planeRef}
         src={planeImg} 
         alt="Airplane flying" 
+        loading="eager"
         className="absolute top-[45%] right-[35%] md:top-[35%] md:right-[35%] w-full max-w-[90px] h-auto object-contain z-15 pointer-events-none"
       />
 

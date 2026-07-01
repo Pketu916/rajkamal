@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Badge from '../ui/Badge';
@@ -8,9 +8,9 @@ import BadgeStarIcon from '../ui/BadgeStarIcon';
 // Import data from the JSON file
 import packagesData from '../../data/packages.json';
 
-import popularPackagesImg1 from '../../assets/images/Popular Packages/Popular Packages 1.png';
-import popularPackagesImg2 from '../../assets/images/Popular Packages/Popular Packages 2.png';
-import popularPackagesImg3 from '../../assets/images/Popular Packages/Popular Packages 3.png';
+import popularPackagesImg1 from '../../assets/images/Popular Packages/Popular Packages 1.webp';
+import popularPackagesImg2 from '../../assets/images/Popular Packages/Popular Packages 2.webp';
+import popularPackagesImg3 from '../../assets/images/Popular Packages/Popular Packages 3.webp';
 
 const popularPackageImagesById = {
   1: popularPackagesImg1,
@@ -18,9 +18,29 @@ const popularPackageImagesById = {
   3: popularPackagesImg3
 };
 
+const getCountry = (destination) => {
+  if (!destination) return 'India';
+  const dest = destination.toLowerCase();
+  if (dest === 'nepal') return 'Nepal';
+  if (dest === 'bhutan') return 'Bhutan';
+  if (dest === 'vietnam') return 'Vietnam';
+  if (dest === 'indonesia') return 'Indonesia';
+  if (dest === 'thailand') return 'Thailand';
+  if (dest === 'singapore') return 'Singapore';
+  if (dest === 'sri lanka') return 'Sri Lanka';
+  return 'India';
+};
+
 const PopularPackagesSection = () => {
   // Use all packages except the first 4
   const popularPackages = packagesData.slice(4);
+  const [selectedCountry, setSelectedCountry] = useState('All');
+
+  const countries = ['All', 'India', 'Nepal', 'Bhutan', 'Vietnam', 'Indonesia', 'Thailand', 'Singapore', 'Sri Lanka'];
+
+  const filteredPackages = selectedCountry === 'All'
+    ? popularPackages
+    : popularPackages.filter(pkg => getCountry(pkg.destination) === selectedCountry);
 
   return (
     <Section id="popular" className="bg-bg-alt">
@@ -43,15 +63,34 @@ const PopularPackagesSection = () => {
             <p className="text-text-main text-sm md:text-base leading-relaxed md:mb-4 ">
               Curated domestic and international travel experiences designed for seamless and unforgettable journeys.
             </p>
-            <a href="#packages" className="hidden md:inline-flex items-center justify-center bg-primary text-white hover:bg-primary-hover rounded-[12px] md:rounded-[14px] cursor-pointer px-6 py-3 mt-4 md:mt-0 font-medium transition-colors">
-              Explore more packages
-            </a>
+
           </div>
+        </div>
+
+        {/* Filter Pills */}
+        <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-3 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 flex-nowrap md:flex-wrap select-none">
+          {countries.map(country => {
+            const isActive = selectedCountry === country;
+            return (
+              <button
+                key={country}
+                onClick={() => setSelectedCountry(country)}
+                className={`px-5 py-2.5 text-sm font-medium rounded-xl border transition-all cursor-pointer whitespace-nowrap ${
+                  isActive
+                    ? 'bg-primary text-white border-primary shadow-sm'
+                    : 'bg-white text-text-muted border-border-light hover:text-text-main hover:bg-gray-50'
+                }`}
+              >
+                {country}
+              </button>
+            );
+          })}
         </div>
 
         {/* 3-Column Grid of Packages */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {popularPackages.map(pkg => (
+          {filteredPackages.length > 0 ? (
+            filteredPackages.map(pkg => (
             <a 
               key={pkg.id} 
               id={`package-${pkg.id}`}
@@ -131,15 +170,15 @@ const PopularPackagesSection = () => {
                 </div>
               </div>
             </a>
-          ))}
+          ))
+        ) : (
+          <div className="col-span-full py-16 text-center text-text-muted text-base bg-[#F8F9FA] rounded-xl border border-border-light">
+            No packages found for this destination.
+          </div>
+        )}
         </div>
 
-        {/* Mobile CTA */}
-        <div className="flex md:hidden justify-center mt-8 w-full">
-          <a href="#packages" className="inline-flex items-center justify-center bg-primary text-white hover:bg-primary-hover rounded-[12px] md:rounded-[14px] cursor-pointer px-6 py-3 w-full font-medium transition-colors">
-            Explore more packages
-          </a>
-        </div>
+
 
       </Container>
     </Section>

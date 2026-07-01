@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Section from '../ui/Section';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
-import bgImage from '../../assets/images/Form/Form Image.png';
+import bgImage from '../../assets/images/Form/Form Image.webp';
 
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({

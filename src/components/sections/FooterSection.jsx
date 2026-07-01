@@ -205,20 +205,7 @@ const FooterSection = () => {
                     Tour packages
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#group"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Group tours
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#blog"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Blog
-                  </a>
-                </li>
+
                 <li>
                   <a
                     href="#contact"
@@ -229,56 +216,7 @@ const FooterSection = () => {
               </ul>
             </div>
 
-            {/* Services */}
-            <div className="flex flex-col items-start min-w-[142px]">
-              <h4 className="text-text-main text-lg !font-medium mb-2 md:mb-4 font-sans">
-                Services
-              </h4>
-              <ul className="flex flex-col md:gap-3 gap-1 ">
-                <li>
-                  <a
-                    href="#"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Holiday packages
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Flight booking
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Hotel reservations
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Cruise booking
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Visa support
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-text-main hover:text-primary text-sm font-medium transition-colors cursor-pointer">
-                    Travel insurance
-                  </a>
-                </li>
-              </ul>
-            </div>
+
 
             {/* Newsletter & Socials */}
             <div className="flex flex-col items-start w-full max-w-[360px] md:max-w-[400px] md:pl-8">

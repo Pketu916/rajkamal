@@ -5,12 +5,12 @@ import Badge from '../ui/Badge';
 import Button from '../ui/Button';
 import BadgeStarIcon from '../ui/BadgeStarIcon';
 
-import destinationsImg1 from '../../assets/images/Destinations/Destinations 1.png';
-import destinationsImg2 from '../../assets/images/Destinations/Destinations 2.png';
-import destinationsImg3 from '../../assets/images/Destinations/Destinations 3.png';
-import destinationsImg4 from '../../assets/images/Destinations/Destinations 4.png';
-import destinationsImg5 from '../../assets/images/Destinations/Destinations 5.png';
-import destinationsImg6 from '../../assets/images/Destinations/Destinations 6.png';
+import destinationsImg1 from '../../assets/images/Destinations/Destinations 1.webp';
+import destinationsImg2 from '../../assets/images/Destinations/Destinations 2.webp';
+import destinationsImg3 from '../../assets/images/Destinations/Destinations 3.webp';
+import destinationsImg4 from '../../assets/images/Destinations/Destinations 4.webp';
+import destinationsImg5 from '../../assets/images/Destinations/Destinations 5.webp';
+import destinationsImg6 from '../../assets/images/Destinations/Destinations 6.webp';
 
 import packagesDataFull from '../../data/packages.json';
 

@@ -6,15 +6,15 @@ import Container from '../ui/Container';
 import IconButton from '../ui/IconButton';
 import Button from '../ui/Button';
 
-import travelSolutionImg1 from '../../assets/images/Travel Solution/Travel Solution 1.png';
-import travelSolutionImg2 from '../../assets/images/Travel Solution/Travel Solution 2.png';
-import travelSolutionImg3 from '../../assets/images/Travel Solution/Travel Solution 3.png';
-import travelSolutionImg4 from '../../assets/images/Travel Solution/Travel Solution 4.png';
-import travelSolutionImg5 from '../../assets/images/Travel Solution/Travel Solution 5.png';
-import travelSolutionImg6 from '../../assets/images/Travel Solution/Travel Solution 6.png';
-import travelSolutionImg7 from '../../assets/images/Travel Solution/Travel Solution 7.png';
-import travelSolutionImg8 from '../../assets/images/Travel Solution/Travel Solution 8.png';
-import travelSolutionImg9 from '../../assets/images/Travel Solution/Travel Solution 9.png';
+import travelSolutionImg1 from '../../assets/images/Travel Solution/Travel Solution 1.webp';
+import travelSolutionImg2 from '../../assets/images/Travel Solution/Travel Solution 2.webp';
+import travelSolutionImg3 from '../../assets/images/Travel Solution/Travel Solution 3.webp';
+import travelSolutionImg4 from '../../assets/images/Travel Solution/Travel Solution 4.webp';
+import travelSolutionImg5 from '../../assets/images/Travel Solution/Travel Solution 5.webp';
+import travelSolutionImg6 from '../../assets/images/Travel Solution/Travel Solution 6.webp';
+import travelSolutionImg7 from '../../assets/images/Travel Solution/Travel Solution 7.webp';
+import travelSolutionImg8 from '../../assets/images/Travel Solution/Travel Solution 8.webp';
+import travelSolutionImg9 from '../../assets/images/Travel Solution/Travel Solution 9.webp';
 
 const solutions = [
   {

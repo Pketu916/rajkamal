@@ -331,7 +331,7 @@ const FooterSection = () => {
             </p>
             <span className="hidden md:inline text-[#00000033]">|</span>
             <p className="text-sm text-text-main font-medium text-center md:text-left">
-              Powered by <a href="https://appsrow.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-2">Appsrow</a>
+              Designed by <a href="https://appsrow.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors underline-offset-2">Appsrow</a>
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-text-main font-medium">
